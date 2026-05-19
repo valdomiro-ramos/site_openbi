@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LEX OPENBI | Advocacia Moderna</title>
+    <!-- Bootstrap 5 + Icons + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f9ff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Curvas e elementos modernos */
+        .curve-top {
+            position: relative;
+            background: white;
+            border-radius: 0 0 60px 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .curve-card {
+            border-radius: 32px;
+            transition: all 0.3s ease;
+            border: none;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0, 35, 80, 0.08);
+        }
+
+        .curve-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 40px -16px rgba(0, 65, 131, 0.18);
+        }
+
+        .section-curve-bg {
+            position: relative;
+            background: linear-gradient(145deg, #ffffff 0%, #f6faff 100%);
+            border-radius: 48px 48px 48px 48px;
+            margin: 2rem 0;
+            padding: 3rem 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .hero-curve {
+            background: linear-gradient(125deg, #052c49 0%, #0a4770 45%, #0e6a8f 100%);
+            border-radius: 0 0 75px 75px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-curve:after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: white;
+            border-radius: 50% 50% 0 0;
+            z-index: 1;
+        }
+
+        .btn-curve {
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: 0.25s;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary-custom {
+            background: #0a66b9;
+            border: none;
+            color: white;
+            box-shadow: 0 8px 18px rgba(10, 102, 185, 0.25);
+        }
+
+        .btn-primary-custom:hover {
+            background: #054a82;
+            transform: scale(1.02);
+            box-shadow: 0 12px 22px rgba(5, 74, 130, 0.3);
+        }
+
+        .btn-outline-light-curve {
+            border-radius: 50px;
+            border: 1.5px solid rgba(255,255,255,0.7);
+            color: white;
+        }
+
+        .btn-outline-light-curve:hover {
+            background: white;
+            color: #0a4770;
+        }
+
+        .nav-link-custom {
+            font-weight: 500;
+            margin: 0 6px;
+            color: #1a2c3e;
+            transition: 0.2s;
+            border-radius: 40px;
+        }
+
+        .nav-link-custom:hover, .nav-link-custom.active {
+            color: #0a66b9;
+            background: #e9f0fa;
+        }
+
+        .bg-soft-blue {
+            background-color: #eef4fc;
+        }
+
+        .icon-blue {
+            color: #0a66b9;
+            background: #e7f0ff;
+            width: 55px;
+            height: 55px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 28px;
+            font-size: 26px;
+        }
+
+        /* Efeito de texto recolher / expandir */
+        .collapse-text-btn {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #0a66b9;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .collapse-text-btn:hover {
+            color: #043b60;
+            gap: 10px;
+        }
+
+        .extra-details {
+            margin-top: 14px;
+            padding-top: 8px;
+            border-top: 1px dashed #cde1f0;
+        }
+
+        /* footer e curvas invertidas */
+        .footer-curve {
+            background: #05243b;
+            border-radius: 55px 55px 0 0;
+            margin-top: 4rem;
+            color: #cddce9;
+        }
+
+        .social-icon-round {
+            background: rgba(255,255,255,0.1);
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            transition: all 0.2s;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .social-icon-round:hover {
+            background: #0a66b9;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-curve h1 {
+                font-size: 2.2rem;
+            }
+            .section-curve-bg {
+                padding: 2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navegação moderna com menu responsivo -->
+<nav class="navbar navbar-expand-lg bg-white py-3 sticky-top shadow-sm" style="border-bottom: 1px solid rgba(0,0,0,0.03);">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="#" style="color: #0a4770;">
+            <i class="fas fa-gavel me-2" style="color: #0e6a8f;"></i> LEX OPENBI
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+                <li class="nav-item"><a class="nav-link nav-link-custom px-3" href="#sobre">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom px-3" href="#servicos">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom px-3" href="#equipe">Equipe</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom px-3" href="#faq">Dúvidas</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-custom px-3" href="#contato">Contato</a></li>
+            </ul>
+            <a href="#contato" class="btn btn-primary-custom btn-curve ms-lg-3">Consulta Gratuita <i class="fas fa-arrow-right ms-1"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero com curvas marcantes (conforme imagem de referência) -->
+<section class="hero-curve text-white py-5" style="margin-bottom: 2rem;">
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <span class="badge bg-white text-dark rounded-pill px-4 py-2 mb-3" style="background: rgba(255,255,255,0.2)!important; backdrop-filter: blur(4px);"><i class="fas fa-balance-scale me-1"></i> Excelência em Direito</span>
+                <h1 class="display-4 fw-bold mb-4">Estratégia jurídica que protege o que importa</h1>
+                <p class="lead mb-4 opacity-90">Solução ágil e personalizada com visão moderna para empresas e pessoas físicas. Resultados que fazem a diferença.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#contato" class="btn btn-light btn-curve text-dark fw-semibold px-4 py-2"><i class="fas fa-calendar-check me-2"></i>Agende sua consulta</a>
+                    <a href="#sobre" class="btn btn-outline-light-curve btn-curve px-4 py-2"><i class="fas fa-chevron-circle-down me-1"></i>Conheça o escritório</a>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block text-center">
+                <div class="bg-white bg-opacity-10 rounded-5 p-3" style="backdrop-filter: blur(8px); border-radius: 70px!important;">
+                    <i class="fas fa-handshake fa-4x mb-2 opacity-80"></i>
+                    <p class="mb-0 fw-semibold">+15 anos de experiência</p>
+                    <small>Atuação nacional & internacional</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+
+    <!-- Seção Sobre com curva suave e layout responsivo -->
+    <section id="sobre" class="my-5 py-2">
+        <div class="section-curve-bg">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="icon-blue mb-3"><i class="fas fa-building"></i></div>
+                    <h2 class="fw-bold" style="color: #0c2e48;">Defesa estratégica, <br> compromisso com a justiça</h2>
+                    <p class="lead mt-3 text-secondary">A LEX OPENBI combina tradição jurídica com tecnologia e inovação. Nosso time entende os desafios contemporâneos e oferece soluções sólidas para cada cliente.</p>
+                    <p>Com mais de 500 casos de sucesso, atendemos desde startups até grandes corporações, sempre com transparência, ética e agilidade. Acreditamos que a advocacia moderna precisa de comunicação clara e estratégias que realmente funcionem.</p>
+                    <div class="mt-4 d-flex gap-3">
+                        <div><span class="fw-bold fs-4 text-primary">98%</span><br>Índice de satisfação</div>
+                        <div><span class="fw-bold fs-4 text-primary">+200</span><br>Clientes ativos</div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="bg-white shadow rounded-4 p-4" style="border-radius: 38px!important;">
+                        <i class="fas fa-quote-left fa-2x text-primary opacity-25 mb-2"></i>
+                        <p class="fst-italic fs-5">“A melhor defesa é construída com confiança e conhecimento técnico profundo.”</p>
+                        <hr class="my-3 w-25 mx-auto">
+                        <p class="mb-0">— Dra. Sofia sobrenome, Sócia-fundadora</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS COM EFEITO DE TEXTO RECOLHÍVEL (COLLAPSE) -->
+    <section id="servicos" class="my-5">
+        <div class="text-center mb-5">
+            <span class="badge bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-pill"><i class="fas fa-briefcase me-1"></i> Atuação</span>
+            <h2 class="display-6 fw-bold mt-2" style="color: #062c44;">Soluções jurídicas completas</h2>
+            <p class="text-secondary w-75 mx-auto">Clique em "Ler mais" para expandir os detalhes de cada área e entender como podemos te auxiliar.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Card 1 - Direito Civil -->
+            <div class="col-md-6 col-lg-4">
+                <div class="curve-card card h-100 p-3 bg-white">
+                    <div class="card-body">
+                        <div class="icon-blue mb-3"><i class="fas fa-gavel"></i></div>
+                        <h4 class="card-title fw-bold">Direito Civil</h4>
+                        <p class="card-text text-secondary">Contratos, responsabilidade civil, indenizações e disputas patrimoniais com abordagem preventiva.</p>
+                        <a class="collapse-text-btn" data-bs-toggle="collapse" href="#civilDetails" role="button" aria-expanded="false" aria-controls="civilDetails">
+                            Ler mais <i class="fas fa-chevron-down ms-1 small"></i>
+                        </a>
+                        <div class="collapse mt-2 extra-details" id="civilDetails">
+                            <p class="small text-muted mb-0">Atuamos em ações cíveis complexas, análise de risco contratual, mediação e execuções. Garantimos segurança jurídica com estratégias para evitar litígios prolongados e reduzir custos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 - Direito Empresarial -->
+            <div class="col-md-6 col-lg-4">
+                <div class="curve-card card h-100 p-3 bg-white">
+                    <div class="card-body">
+                        <div class="icon-blue mb-3"><i class="fas fa-chart-line"></i></div>
+                        <h4 class="card-title fw-bold">Direito Empresarial</h4>
+                        <p class="card-text text-secondary">Abertura, fusões, compliance, recuperação judicial e governança corporativa.</p>
+                        <a class="collapse-text-btn" data-bs-toggle="collapse" href="#empresarialDetails" role="button" aria-expanded="false" aria-controls="empresarialDetails">
+                            Ler mais <i class="fas fa-chevron-down ms-1 small"></i>
+                        </a>
+                        <div class="collapse mt-2 extra-details" id="empresarialDetails">
+                            <p class="small text-muted mb-0">Acompanhamos seu negócio em todas as fases: desde a estruturação jurídica até operações de M&A, proteção de ativos e due diligence. Experiência em mais de 100 empresas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 - Direito do Trabalho -->
+            <div class="col-md-6 col-lg-4">
+                <div class="curve-card card h-100 p-3 bg-white">
+                    <div class="card-body">
+                        <div class="icon-blue mb-3"><i class="fas fa-users"></i></div>
+                        <h4 class="card-title fw-bold">Direito Trabalhista</h4>
+                        <p class="card-text text-secondary">Defesa patronal e trabalhista, acordos coletivos, prevenção de passivos.</p>
+                        <a class="collapse-text-btn" data-bs-toggle="collapse" href="#trabalhistaDetails" role="button" aria-expanded="false" aria-controls="trabalhistaDetails">
+                            Ler mais <i class="fas fa-chevron-down ms-1 small"></i>
+                        </a>
+                        <div class="collapse mt-2 extra-details" id="trabalhistaDetails">
+                            <p class="small text-muted mb-0">Consultoria preventiva, auditoria de contratos, representação em dissídios e negociações sindicais. Redução de riscos trabalhistas com estratégia moderna.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- segunda linha de serviços para mais conteúdo recolhível -->
+        <div class="row g-4 mt-3">
+            <div class="col-md-6 col-lg-4">
+                <div class="curve-card card h-100 p-3 bg-white">
+                    <div class="card-body">
+                        <div class="icon-blue mb-3"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h4 class="card-title fw-bold">Direito Tributário</h4>
+                        <p class="card-text text-secondary">Planejamento tributário, recuperação de créditos, contencioso fiscal.</p>
+                        <a class="collapse-text-btn" data-bs-toggle="collapse" href="#tributarioDetails" role="button" aria-expanded="false" aria-controls="tributarioDetails">
+                            Ler mais <i class="fas fa-chevron-down ms-1 small"></i>
+                        </a>
+                        <div class="collapse mt-2 extra-details" id="tributarioDetails">
+                            <p class="small text-muted mb-0">Redução da carga tributária legal, defesa em autos de infração e consultoria para otimização fiscal. Atendimento personalizado para pessoas jurídicas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="curve-card card h-100 p-3 bg-white">
+                    <div class="card-body">
+                        <div class="icon-blue mb-3"><i class="fas fa-shield-alt"></i></div>
+                        <h4 class="card-title fw-bold">Direito Digital</h4>
+                        <p class="card-text text-secondary">LGPD, proteção de dados, crimes cibernéticos e contratos digitais.</p>
+                        <a class="collapse-text-btn" data-bs-toggle="collapse" href="#digitalDetails" role="button" aria-expanded="false" aria-controls="digitalDetails">
+                            Ler mais <i class="fas fa-chevron-down ms-1 small"></i>
+                        </a>
+                        <div class="collapse mt-2 extra-details" id="digitalDetails">
+                            <p class="small text-muted mb-0">Adequação à LGPD, políticas de privacidade e incidentes de segurança. Assessoria completa para startups e comércio eletrônico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="curve-card card h-100 p-3 bg-white">
+                    <div class="card-body">
+                        <div class="icon-blue mb-3"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h4 class="card-title fw-bold">Direito de Família</h4>
+                        <p class="card-text text-secondary">Divórcios, guarda, inventários e alimentos com sensibilidade.</p>
+                        <a class="collapse-text-btn" data-bs-toggle="collapse" href="#familiaDetails" role="button" aria-expanded="false" aria-controls="familiaDetails">
+                            Ler mais <i class="fas fa-chevron-down ms-1 small"></i>
+                        </a>
+                        <div class="collapse mt-2 extra-details" id="familiaDetails">
+                            <p class="small text-muted mb-0">Mediação familiar, acordos personalizados e planejamento sucessório. Resolução humanizada que prioriza o diálogo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Equipe com toque de modernidade -->
+    <section id="equipe" class="my-5">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold" style="color: #0c2e48;">Especialistas que fazem a diferença</h2>
+            <p class="text-secondary">Profissionais renomados, unidos pela excelência e compromisso com o cliente.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="curve-card card text-center p-3 bg-white h-100">
+                    <div class="bg-soft-blue rounded-circle mx-auto my-2 d-flex align-items-center justify-content-center" style="width: 110px; height: 110px;"><i class="fas fa-user-tie fa-4x text-primary"></i></div>
+                    <h5 class="mt-3 fw-bold">Dra. Sofia sobrenome</h5>
+                    <p class="text-muted small">Sócia | Direito Empresarial</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="curve-card card text-center p-3 bg-white h-100">
+                    <div class="bg-soft-blue rounded-circle mx-auto my-2 d-flex align-items-center justify-content-center" style="width: 110px; height: 110px;"><i class="fas fa-user-graduate fa-4x text-primary"></i></div>
+                    <h5 class="mt-3 fw-bold">Dr. Lucas sobrenome</h5>
+                    <p class="text-muted small">Direito Civil e Contencioso</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="curve-card card text-center p-3 bg-white h-100">
+                    <div class="bg-soft-blue rounded-circle mx-auto my-2 d-flex align-items-center justify-content-center" style="width: 110px; height: 110px;"><i class="fas fa-scale-balanced fa-4x text-primary"></i></div>
+                    <h5 class="mt-3 fw-bold">Dra. Beatriz sobrenome</h5>
+                    <p class="text-muted small">Direito Trabalhista & Sindical</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="curve-card card text-center p-3 bg-white h-100">
+                    <div class="bg-soft-blue rounded-circle mx-auto my-2 d-flex align-items-center justify-content-center" style="width: 110px; height: 110px;"><i class="fas fa-chalkboard-user fa-4x text-primary"></i></div>
+                    <h5 class="mt-3 fw-bold">Dr. Ricardo sobrenome</h5>
+                    <p class="text-muted small">Direito Tributário</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ com efeito de recolhimento (accordion) -->
+    <section id="faq" class="my-5">
+        <div class="section-curve-bg">
+            <div class="text-center mb-4">
+                <i class="fas fa-comments fs-1 text-primary opacity-75"></i>
+                <h2 class="fw-bold mt-2">Perguntas frequentes</h2>
+                <p>Entenda melhor nosso processo e tire suas dúvidas — clique nas perguntas para expandir as respostas.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="accordion" id="accordionFaq">
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded-4 overflow-hidden">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button bg-white fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fas fa-question-circle text-primary me-3"></i> Como funciona a primeira consulta?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFaq">
+                                <div class="accordion-body text-secondary">A primeira reunião é diagnóstica, gratuita e pode ser online ou presencial. Analisamos o caso e apresentamos estratégias iniciais e honorários de forma transparente.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded-4 overflow-hidden">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed bg-white fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="fas fa-clock text-primary me-3"></i> Qual o prazo médio de resposta?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+                                <div class="accordion-body text-secondary">Buscamos agilidade máxima. Após contrato, retornamos com análise preliminar em até 48h úteis e mantemos canal direto com o cliente via área restrita e WhatsApp.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed bg-white fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="fas fa-globe text-primary me-3"></i> Atendem causas em todo o Brasil?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+                                <div class="accordion-body text-secondary">Sim, atuamos em parceria com correspondentes em todos os estados, garantindo presença nacional e suporte jurídico remoto altamente eficiente.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato com formulário moderno -->
+    <section id="contato" class="my-5">
+        <div class="row align-items-center g-4">
+            <div class="col-md-5">
+                <div class="bg-white rounded-5 p-4 p-lg-5 shadow-sm" style="border-radius: 48px!important;">
+                    <i class="fas fa-envelope-open-text fa-2x text-primary mb-3"></i>
+                    <h3 class="fw-bold">Fale com nossa equipe</h3>
+                    <p class="text-secondary">Envie sua mensagem e responderemos em até 24 horas úteis.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-3"><i class="fas fa-phone-alt text-primary me-3"></i> (11) 3456-7890</li>
+                        <li class="mb-3"><i class="fas fa-envelope text-primary me-3"></i> contato@lexopenbi.adv.br</li>
+                        <li class="mb-3"><i class="fas fa-map-marker-alt text-primary me-3"></i> Av. OpenBi 1000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="curve-card card p-4 bg-white border-0">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Nome completo</label>
+                                <input type="text" class="form-control rounded-4" placeholder="Seu nome">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">E-mail</label>
+                                <input type="email" class="form-control rounded-4" placeholder="email@exemplo.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Assunto</label>
+                                <input type="text" class="form-control rounded-4" placeholder="Direito Civil / Empresarial...">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Mensagem</label>
+                                <textarea rows="4" class="form-control rounded-4" placeholder="Descreva resumidamente sua situação..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-primary-custom btn-curve px-5 py-2">Enviar consulta <i class="fas fa-paper-plane ms-2"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Footer com curva superior -->
+<footer class="footer-curve pt-5 pb-4 mt-5">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-4">
+                <h4 class="text-white fw-bold"><i class="fas fa-gavel me-2"></i>LEX OPENBI</h4>
+                <p class="small opacity-75">Advocacia com visão estratégica, compromisso com a justiça e resultados que protegem seus interesses.</p>
+                <div class="d-flex gap-2 mt-3">
+                    <a href="#" class="social-icon-round"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon-round"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon-round"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-white">Links rápidos</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#sobre" class="text-decoration-none text-white-50 small">Sobre o escritório</a></li>
+                    <li><a href="#servicos" class="text-decoration-none text-white-50 small">Áreas de atuação</a></li>
+                    <li><a href="#equipe" class="text-decoration-none text-white-50 small">Nossa equipe</a></li>
+                    <li><a href="#contato" class="text-decoration-none text-white-50 small">Trabalhe conosco</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-white">Atendimento</h5>
+                <p class="small text-white-50 mb-1"><i class="far fa-clock me-2"></i> Segunda a Sexta: 9h às 19h</p>
+                <p class="small text-white-50"><i class="fas fa-video me-2"></i> Atendimento remoto disponível</p>
+            </div>
+        </div>
+        <hr class="opacity-25 mt-4">
+        <div class="text-center small opacity-75">© 2025 LEX OPENBI. Todos os direitos reservados. | Política de privacidade</div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // animação suave para menu + ativar link ativo
+    document.querySelectorAll('.nav-link-custom').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId && targetId !== '#') {
+                e.preventDefault();
+                const targetElem = document.querySelector(targetId);
+                if(targetElem) {
+                    targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+    // efeito de rotação nos botões collapse
+    document.querySelectorAll('.collapse-text-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if(icon) {
+                if(this.getAttribute('aria-expanded') === 'true') {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+                setTimeout(() => {
+                    if(icon) icon.style.transform = '';
+                }, 300);
+            }
+        });
+    });
+</script>
+</body>
+</html>

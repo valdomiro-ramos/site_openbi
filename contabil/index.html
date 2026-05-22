@@ -62,6 +62,18 @@
         .modal-backdrop { z-index: 1040; }
         .modal { z-index: 1050; }
         .service-icon { font-size: 2.5rem; background: #fceaea; width: 70px; height: 70px; border-radius: 60px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #b91c2c; }
+        .about-icon {
+            font-size: 2rem;
+            color: #b91c2c;
+            background: #fff0ef;
+            width: 70px;
+            height: 70px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -77,6 +89,7 @@
 </div>
 
 <div class="main-content">
+    <!-- MENU FIXO COM NOVO ITEM "SOBRE" -->
     <nav class="navbar navbar-expand-lg navbar-fixed fixed-top py-2">
         <div class="container">
             <a class="navbar-brand text-white fs-3" href="#"><i class="fas fa-chart-line me-2"></i>Nexus<span class="fw-light">Contábil</span></a>
@@ -86,6 +99,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
                     <li class="nav-item"><a class="nav-link" href="#recolhimento">Informações</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
                 </ul>
             </div>
@@ -93,7 +107,7 @@
     </nav>
     <div style="padding-top: 90px;"></div>
 
-    <!-- Carrossel (mesmo conteúdo) -->
+    <!-- Carrossel -->
     <div class="container my-4">
         <div id="carrossel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -174,6 +188,44 @@
         </div>
     </div>
 
+    <!-- NOVA SEÇÃO "SOBRE A EMPRESA" -->
+    <div class="container my-5" id="sobre">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card-modern p-4 p-lg-5">
+                    <div class="text-center mb-4">
+                        <div class="about-icon mx-auto"><i class="fas fa-building"></i></div>
+                        <h2 class="fw-bold text-danger">Sobre a Nexus Contábil</h2>
+                        <div class="divider bg-danger mx-auto" style="width: 80px; height: 3px; margin-top: 8px;"></div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-flag-checkered text-danger me-2"></i> Nossa História</h5>
+                            <p>Fundada em 2010, a Nexus Contábil nasceu com o propósito de descomplicar a gestão fiscal e contábil de empresas de todos os portes. Com mais de 500 clientes atendidos, acumulamos experiência e inovação para oferecer soluções que realmente geram valor.</p>
+                            <h5 class="mt-3"><i class="fas fa-eye text-danger me-2"></i> Missão</h5>
+                            <p>Proporcionar segurança fiscal e inteligência financeira para que nossos clientes possam focar no crescimento do negócio, através de serviços contábeis transparentes, ágeis e tecnológicos.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-gem text-danger me-2"></i> Valores</h5>
+                            <ul>
+                                <li>Ética e transparência acima de tudo</li>
+                                <li>Inovação contínua em processos</li>
+                                <li>Compromisso com resultados</li>
+                                <li>Atendimento humanizado e próximo</li>
+                            </ul>
+                            <h5 class="mt-3"><i class="fas fa-trophy text-danger me-2"></i> Reconhecimentos</h5>
+                            <p>Certificados pelo CRC e Premiada como "Melhor Escritório de Contabilidade Regional" em 2022 e 2024. Somos referência em compliance e tecnologia aplicada à contabilidade.</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <p class="lead">+12 anos de experiência | +500 empresas atendidas | 98% de satisfação</p>
+                        <a href="#contato" class="btn btn-modern-red mt-2">Fale com nossa equipe <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- CONTATO COM WEB3FORMS (envio real de e-mail) -->
     <div class="container my-5 pt-2 pb-4" id="contato">
         <div class="row align-items-center">
@@ -196,12 +248,9 @@
                     <form action="https://api.web3forms.com/submit" method="POST">
                         <!-- ⚠️ ATENÇÃO: substitua o value abaixo pela sua Access Key gerada em https://web3forms.com -->
                         <input type="hidden" name="access_key" value="SUA_ACCESS_KEY_AQUI">
-                        
-                        <!-- Opcionais: personalizar assunto do e-mail e redirecionamento -->
                         <input type="hidden" name="subject" value="Novo contato do site Nexus Contábil">
                         <input type="hidden" name="redirect" value="https://web3forms.com/success">
                         
-                        <!-- Campos do formulário -->
                         <div class="mb-3">
                             <input type="text" name="name" class="form-control" placeholder="Seu nome completo" required>
                         </div>

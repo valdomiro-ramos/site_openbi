@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP Santos Transportes | Fretamento de Vans e Ônibus</title>
+    <!-- Bootstrap 5 + Font Awesome + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: #ffffff;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
+        /* Navbar fixa */
+        .navbar {
+            background-color: rgba(15, 43, 61, 0.95) !important;
+            backdrop-filter: blur(8px);
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: #f5b042 !important;
+        }
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #f5b042 !important;
+        }
+        .btn-gold {
+            background-color: #f5b042;
+            border: none;
+            padding: 10px 28px;
+            font-weight: 600;
+            border-radius: 40px;
+            color: #1e293b;
+            transition: all 0.2s;
+        }
+        .btn-gold:hover {
+            background-color: #e09d2c;
+            transform: scale(1.02);
+            color: #0f172a;
+        }
+        .btn-outline-gold {
+            border: 2px solid #f5b042;
+            color: #f5b042;
+            border-radius: 40px;
+            padding: 8px 24px;
+            font-weight: 600;
+            background: transparent;
+        }
+        .btn-outline-gold:hover {
+            background-color: #f5b042;
+            color: #1e293b;
+        }
+        /* Hero com curvas */
+        .hero-wave {
+            background: linear-gradient(135deg, #0f2b3d 0%, #1b4a6e 100%);
+            color: white;
+            position: relative;
+            padding: 140px 0 100px 0;
+            overflow: hidden;
+        }
+        .custom-shape-divider-bottom-hero {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .custom-shape-divider-bottom-hero svg {
+            width: calc(100% + 1.3px);
+            height: 70px;
+            display: block;
+        }
+        .section-wave-top {
+            position: relative;
+            padding: 60px 0;
+        }
+        .wave-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        .carousel-frota .carousel-item img {
+            height: 480px;
+            object-fit: cover;
+            border-radius: 28px;
+        }
+        @media (max-width: 768px) {
+            .hero-wave { padding: 100px 0 70px 0; }
+            .carousel-frota .carousel-item img { height: 260px; }
+        }
+        .bg-soft {
+            background-color: #f8fafc;
+        }
+        .form-control, .form-select {
+            border-radius: 1rem;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(245,176,66,0.3);
+            border-color: #f5b042;
+        }
+        /* Redes sociais - sempre visíveis */
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background-color: #f5b042;
+            color: #1e293b;
+            border-radius: 50%;
+            transition: 0.2s;
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+        .social-icon:hover {
+            background-color: #e09d2c;
+            color: white;
+            transform: translateY(-3px);
+        }
+        .whatsapp-link {
+            background-color: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .whatsapp-link:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: scale(1.02);
+        }
+        footer .social-icon-footer {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background-color: rgba(255,255,255,0.1);
+            color: #f5b042;
+            border-radius: 50%;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        footer .social-icon-footer:hover {
+            background-color: #f5b042;
+            color: #1e293b;
+        }
+        /* Accordion customizado */
+        .accordion-button:not(.collapsed) {
+            background-color: #fef9e6;
+            color: #b45309;
+            font-weight: 600;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #f5b042;
+        }
+        .accordion-button {
+            background-color: #ffffff;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .list-bullet {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-bullet li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .list-bullet li i {
+            color: #f5b042;
+            width: 20px;
+        }
+        .accordion-body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- MENU FIXO -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">JP Santos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#frota">Frota</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                <li class="nav-item"><a class="nav-link" href="#orcamento">Orçamento</a></li>
+            </ul>
+            <a href="#orcamento" class="btn btn-gold ms-3 d-none d-lg-inline-block">Solicitar</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero-wave">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7 text-center text-lg-start">
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill"><i class="fas fa-shield-alt me-1"></i> Atendimento 24 horas</span>
+                <h1 class="display-4 fw-bold mb-4">JP Santos Transportes<br> <span class="text-warning">Conforto, Confiança e Disponibilidade Imediata</span></h1>
+                <p class="lead mb-4 opacity-90">Somos uma locadora de veículos há mais de 10 anos no mercado, com o intuito de atender as necessidades de cada cliente de forma adequada. Nossa frota de vans executivas e ônibus para fretamento está pronta para você.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                    <a href="#orcamento" class="btn btn-gold btn-lg"><i class="fas fa-phone-alt me-2"></i>Solicitar orçamento</a>
+                    <a href="#frota" class="btn btn-outline-gold btn-lg"><i class="fas fa-bus me-2"></i>Conheça a frota</a>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="bg-white p-2 rounded-4 shadow-lg">
+                    <img src="https://placehold.co/600x400/2c5282/white?text=Van+Executiva+JP" alt="Van executiva" class="img-fluid rounded-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="custom-shape-divider-bottom-hero">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#ffffff"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- SEÇÃO SOBRE (com accordion no lugar da imagem) -->
+<section id="sobre" class="section-wave-top py-5">
+    <div class="container">
+        <div class="row g-5 align-items-start">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-3">Profissionais treinados para atender você com cordialidade e segurança</h2>
+                <p class="text-secondary">Nossos profissionais estão treinados e aptos a atendê-los, com cordialidade e segurança. Disponibilizamos Carros executivos, Ônibus e Vans em São Paulo, para quem busca um serviço especializado.</p>
+                <p>Nosso lema é atender a todos os clientes de forma exclusiva e eficaz. Buscamos levar segurança, conforto e um serviço de qualidade a todos. Somos uma empresa de locação de veículos com motoristas, especializada em atender as necessidades de cada cliente de forma adequada e conforme sua demanda.</p>
+                <div class="row mt-4 g-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-3">
+                            <i class="fas fa-check-circle fa-2x" style="color:#f5b042;"></i>
+                            <div><strong>Frota moderna</strong><br>Vans, micro-ônibus e executivos</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-3">
+                            <i class="fas fa-headset fa-2x" style="color:#f5b042;"></i>
+                            <div><strong>Atendimento 24h</strong><br>Solicite seu orçamento a qualquer momento</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <!-- Accordion com os 4 blocos de texto (substituindo a imagem) -->
+                <div class="accordion" id="accordionServicos">
+                    <!-- 1. Aluguel de Vans -->
+                    <div class="accordion-item border-0 shadow-sm mb-3 rounded-4 overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVans" aria-expanded="false">
+                                <i class="fas fa-van-shuttle me-3" style="color:#f5b042;"></i> Aluguel de Vans em SP
+                            </button>
+                        </h2>
+                        <div id="collapseVans" class="accordion-collapse collapse" data-bs-parent="#accordionServicos">
+                            <div class="accordion-body">
+                                A JPSANTOS Transportes possui uma frota exclusiva de vans executivas disponíveis para locação no estado de São Paulo. A capacidade de acomodação das vans é de 15 à 18 passageiros. Todas elas são projetadas com foco no conforto e bem estar de nossos clientes. Todas são muito bem equipadas com itens essenciais como bancos de couro, Frigobar, DVD, ar-condicionado e outros opcionais disponíveis sob consulta. Conheça nossa frota especial e peça já um orçamento.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2. Ônibus e Microônibus -->
+                    <div class="accordion-item border-0 shadow-sm mb-3 rounded-4 overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOnibus" aria-expanded="false">
+                                <i class="fas fa-bus me-3" style="color:#f5b042;"></i> Ônibus e Microônibus
+                            </button>
+                        </h2>
+                        <div id="collapseOnibus" class="accordion-collapse collapse" data-bs-parent="#accordionServicos">
+                            <div class="accordion-body">
+                                A JPSANTOS Transportes dispõem também de Ônibus e Microônibus para fretamento particular, serviços para empresas, eventos entre outros. Nossos veículos são modernos, oferecem conforto e bem estar e possuem poltronas especiais, Ar-Condicionado e sistema de entretenimento. Trabalhamos com uma manutenção regular dos veículos pensando sempre na segurança dos passageiros e confiança de nossos clientes. Realizamos fretamento particular e para empresas. Solicite um orçamento.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3. Aluguel de Carros Executivos -->
+                    <div class="accordion-item border-0 shadow-sm mb-3 rounded-4 overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCarros" aria-expanded="false">
+                                <i class="fas fa-car me-3" style="color:#f5b042;"></i> Aluguel de Carros Executivos
+                            </button>
+                        </h2>
+                        <div id="collapseCarros" class="accordion-collapse collapse" data-bs-parent="#accordionServicos">
+                            <div class="accordion-body">
+                                Conheça nosso serviço de aluguel de carros executivos. Todos contam com uma equipe especializada de motoristas capacitados, que garantem um serviço qualificado e de primeira qualidade atendendo às expectativas dos clientes. Nossa frota de veículos executivos também oferece todo o conforto, como sistema de Ar-Condicionado e opcionais disponíveis para um trajeto tranquilo e confortável. Não perca tempo e solicite um orçamento.
+                                <br><br>
+                                Procuramos conhecer os detalhes das necessidades de nosso cliente, para que seja possível termos tratativas diferenciadas a cada viagem ou passeio realizado pela nossa empresa. Desta forma nossos clientes estarão satisfeitos e com certeza irão fazer um passeio, viagem a trabalho ou férias com qualidade e precisão.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 4. Serviços Especiais e Diferenciais -->
+                    <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEspeciais" aria-expanded="false">
+                                <i class="fas fa-star me-3" style="color:#f5b042;"></i> Serviços Especiais e Diferenciais
+                            </button>
+                        </h2>
+                        <div id="collapseEspeciais" class="accordion-collapse collapse" data-bs-parent="#accordionServicos">
+                            <div class="accordion-body">
+                                <p><strong>A JPSantos Transportes</strong> disponibiliza serviços especiais, personalizados e adequados à necessidade de cada cliente.</p>
+                                <p>Atendemos clientes pessoa física, indústrias, empresas de todos os portes, eventos, feiras, prestamos serviços de transporte especial para executivos, estrangeiros.</p>
+                                <p>Realizamos viagens (urbanas, intermunicipais e interestaduais). Serviços especiais, fretamentos, transfers, diárias, receptivos, coordenadores, com o compromisso e responsabilidade que você procura!</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="list-bullet">
+                                            <li><i class="fas fa-check-circle"></i> Traslados</li>
+                                            <li><i class="fas fa-check-circle"></i> Transporte executivo</li>
+                                            <li><i class="fas fa-check-circle"></i> Transporte para hotéis</li>
+                                            <li><i class="fas fa-check-circle"></i> Transporte para eventos</li>
+                                            <li><i class="fas fa-check-circle"></i> Transporte para empresas</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-bullet">
+                                            <li><i class="fas fa-check-circle"></i> Transporte para aeroportos</li>
+                                            <li><i class="fas fa-check-circle"></i> Locação de van para viagens e passeios</li>
+                                            <li><i class="fas fa-check-circle"></i> Locação de van para turismo, ecológico, aventura, comércio</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <p class="mt-2 fst-italic">Nossos serviços são realizados com foco na segurança, pontualidade, conforto e estratégia logística, para que cada cliente tenha uma experiência satisfatória com a JPSantos Transportes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-4 text-muted fst-italic">"Atendimento personalizado para cada viagem ou passeio"</p>
+            </div>
+        </div>
+    </div>
+    <div class="wave-bg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35C59.71,50.69,115.53,46.19,172,41.86Z" fill="#f5b042"></path></svg>
+    </div>
+</section>
+
+<!-- CARROSSEL FROTA (mantido igual) -->
+<section id="frota" class="py-5 bg-soft">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="badge bg-dark text-warning bg-opacity-10 px-3 py-2 rounded-pill"><i class="fas fa-images me-1"></i> Galeria</span>
+            <h2 class="fw-bold">Nossa frota de vans e ônibus</h2>
+            <p class="text-secondary">Veículos modernos, climatizados e com seguro completo.</p>
+        </div>
+        <div id="carouselFrota" class="carousel carousel-frota slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselFrota" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselFrota" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselFrota" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#carouselFrota" data-bs-slide-to="3"></button>
+            </div>
+            <div class="carousel-inner rounded-4 shadow-lg">
+                <div class="carousel-item active">
+                    <img src="images/IMG-20230517-WA0137.jpg" class="d-block w-100" alt="Van executiva externa">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-40 rounded-3 p-3">
+                        <h5>Van Mercedes Executiva</h5>
+                        <p>Conforto e tecnologia para sua viagem</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/IMG-20230517-WA0149_interno.jpg" class="d-block w-100" alt="Interior van luxo">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-40 rounded-3 p-3">
+                        <h5>Interior sofisticado</h5>
+                        <p>Bancos reclináveis, ar e Wi-Fi</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/IMG-20230517-WA0151.jpg" class="d-block w-100" alt="Van Renault Master">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-40 rounded-3 p-3">
+                        <h5>Van Renault Master</h5>
+                        <p>15 lugares, ideal para grupos</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images\IMG-20200123-WA0045 - interno.jpg" class="d-block w-100" alt="Interior van espaçosa">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-40 rounded-3 p-3">
+                        <h5>Espaço e conforto</h5>
+                        <p>Perfeito para fretamento executivo</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselFrota" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselFrota" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        <div class="alert alert-info mt-3 text-center small">
+            <i class="fas fa-info-circle"></i> Dica: Para trocar as imagens, salve suas fotos na pasta <code>/images/</code> e atualize os links no carrossel.
+        </div>
+    </div>
+</section>
+
+<!-- CONTATO + WHATSAPP + REDES SOCIAIS + FORMULÁRIO -->
+<section id="contato" class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <h2 class="fw-bold"><i class="fas fa-headset me-2" style="color:#f5b042;"></i> Fale Conosco</h2>
+                <p class="mt-3">Estamos prontos para atender você. Escolha o canal mais rápido:</p>
+                <a href="https://wa.me/5511999999999?text=Olá%2C%20gostaria%20de%20um%20orçamento%20para%20fretamento!" target="_blank" class="whatsapp-link mb-3 d-inline-flex">
+                    <i class="fab fa-whatsapp fa-lg"></i> (11) 99999-9999 - Fale conosco no WhatsApp
+                </a>
+                <ul class="list-unstyled mt-4">
+                    <li class="mb-3"><i class="fas fa-envelope me-3" style="color:#f5b042;"></i> contato@jpsantostransportes.com</li>
+                    <li class="mb-3"><i class="fas fa-phone-alt me-3" style="color:#f5b042;"></i> (11) 98888-7777 (Telefone/Comercial)</li>
+                    <li class="mb-3"><i class="fas fa-map-marker-alt me-3" style="color:#f5b042;"></i> São Paulo - SP</li>
+                </ul>
+                <div class="mt-4">
+                    <h5>Redes Sociais</h5>
+                    <div class="d-flex gap-3 mt-2">
+                        <a href="https://instagram.com/jpsantostransportes" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/jpsantostransportes" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="mt-4 p-3 bg-soft rounded-4">
+                    <i class="fas fa-clock me-2"></i> Atendimento 24 horas, inclusive feriados.
+                </div>
+            </div>
+            <div class="col-lg-7" id="orcamento">
+                <div class="card shadow border-0 rounded-4 p-4">
+                    <h3 class="fw-bold mb-3">Solicite seu orçamento personalizado</h3>
+                    <p>Preencha os dados e receba uma proposta em até 2 horas.</p>
+                    <form action="https://formsubmit.co/seuemail@dominio.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="Novo orçamento - JP Santos Transportes">
+                        <input type="text" name="_honey" style="display:none">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Nome completo *</label>
+                                <input type="text" name="nome" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">E-mail *</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Telefone (com DDD) *</label>
+                                <input type="tel" name="telefone" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Tipo de veículo</label>
+                                <select name="veiculo" class="form-select">
+                                    <option>Van executiva (até 15 lugares)</option>
+                                    <option>Micro-ônibus (até 30 lugares)</option>
+                                    <option>Ônibus fretamento</option>
+                                    <option>Carro de luxo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Quantas pessoas? *</label>
+                                <input type="number" name="quantidade_pessoas" class="form-control" placeholder="Ex: 12" min="1" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Local de início da viagem *</label>
+                                <input type="text" name="local_inicio" class="form-control" placeholder="Cidade/Região, SP" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Data prevista</label>
+                                <input type="date" name="data_viagem" class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Mensagem / Detalhes adicionais</label>
+                                <textarea name="mensagem" rows="3" class="form-control" placeholder="Destino, horário, necessidade especial..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-gold w-100 py-3 fw-bold"><i class="fas fa-paper-plane me-2"></i> Enviar orçamento</button>
+                            </div>
+                            <div class="col-12 text-center small text-muted">
+                                Seus dados estão seguros. Responderemos em até 2 horas.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-5">
+                <h4 class="text-warning">JP Santos Transportes</h4>
+                <p>Aluguel de veículos com motorista • Vans, ônibus e carros executivos em São Paulo. Mais de 10 anos oferecendo conforto e confiança.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="social-icon-footer"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon-footer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon-footer"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h5>Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#home" class="text-white-50 text-decoration-none">Home</a></li>
+                    <li><a href="#sobre" class="text-white-50 text-decoration-none">Sobre</a></li>
+                    <li><a href="#frota" class="text-white-50 text-decoration-none">Frota</a></li>
+                    <li><a href="#contato" class="text-white-50 text-decoration-none">Contato</a></li>
+                    <li><a href="#orcamento" class="text-white-50 text-decoration-none">Orçamento</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Atendimento 24h</h5>
+                <p><i class="fas fa-envelope me-2 text-warning"></i> contato@jpsantostransportes.com</p>
+                <p><i class="fas fa-phone-alt me-2 text-warning"></i> (11) 99999-9999</p>
+                <p><i class="fab fa-whatsapp me-2 text-warning"></i> (11) 98888-7777</p>
+            </div>
+        </div>
+        <hr class="mt-4 opacity-25">
+        <div class="text-center text-white-50 small">
+            © 2025 JP Santos Transportes - Fretamento e Viagens. Todos os direitos reservados.
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Carrossel
+    var carousel = new bootstrap.Carousel(document.getElementById('carouselFrota'), {
+        interval: 4000,
+        ride: 'carousel',
+        pause: 'hover'
+    });
+    // Menu ativo no scroll
+    const sections = document.querySelectorAll("section[id]");
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (scrollY >= sectionTop) current = section.getAttribute("id");
+        });
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
+        });
+    });
+</script>
+</body>
+</html>

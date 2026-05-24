@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>SeguroPrime | Vida, Auto & Saúde - Proteção Completa</title>
+  <!-- Bootstrap 5 + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf8;
+      color: #1e2a32;
+      scroll-behavior: smooth;
+    }
+    :root {
+      --orange-primary: #f47c1f;
+      --orange-dark: #e05f0a;
+      --orange-light: #fff0e5;
+      --deep-blue: #0a2540;
+      --deep-blue-dark: #051c2c;
+      --gray-soft: #f8f9fc;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+    }
+    section { scroll-margin-top: 85px; }
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(2px);
+      box-shadow: var(--shadow-sm);
+      padding: 1rem 0;
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: var(--deep-blue) !important;
+    }
+    .navbar-brand span { color: var(--orange-primary); font-weight: 800; }
+    .nav-link {
+      font-weight: 600;
+      color: #2c3e44 !important;
+      margin: 0 0.2rem;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--orange-primary) !important; }
+    .btn-orange {
+      background-color: var(--orange-primary);
+      color: white;
+      border: none;
+      font-weight: 600;
+      padding: 0.75rem 1.8rem;
+      border-radius: 48px;
+      transition: all 0.2s ease-in-out;
+    }
+    .btn-orange:hover {
+      background-color: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -8px rgba(244, 124, 31, 0.4);
+      color: white;
+    }
+    .btn-outline-orange {
+      border: 2px solid var(--orange-primary);
+      background: transparent;
+      color: var(--orange-primary);
+      font-weight: 600;
+      border-radius: 48px;
+      padding: 0.7rem 1.6rem;
+      transition: all 0.2s;
+    }
+    .btn-outline-orange:hover {
+      background-color: var(--orange-primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    .hero-section {
+      background: linear-gradient(105deg, #ffffff 0%, #fef5eb 100%);
+      padding: 6rem 0 5rem 0;
+      border-bottom: 1px solid rgba(244, 124, 31, 0.15);
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--deep-blue);
+    }
+    .hero-title span {
+      color: var(--orange-primary);
+      border-bottom: 3px solid var(--orange-primary);
+      display: inline-block;
+    }
+    .service-card {
+      border: none;
+      border-radius: 32px;
+      background: white;
+      transition: all 0.25s;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-bottom: 4px solid var(--orange-primary);
+    }
+    .card-icon {
+      font-size: 3rem;
+      color: var(--orange-primary);
+      background-color: var(--orange-light);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 28px;
+      margin-bottom: 1.5rem;
+    }
+    .bg-soft-accent { background-color: #f9f6f0; }
+    .section-title {
+      font-weight: 700;
+      font-size: 2.3rem;
+      letter-spacing: -0.01em;
+      color: var(--deep-blue);
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--orange-primary);
+      border-radius: 4px;
+    }
+    .text-accent { color: var(--orange-primary); }
+    .contact-form {
+      background: white;
+      border-radius: 32px;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+    .form-control, .form-select {
+      border-radius: 18px;
+      padding: 0.7rem 1.2rem;
+      border: 1px solid #e2e8f0;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--orange-primary);
+      box-shadow: 0 0 0 3px rgba(244, 124, 31, 0.2);
+    }
+    .footer-dark {
+      background-color: var(--deep-blue);
+      color: #e2e8f0;
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-dark a { color: #f0b27a; text-decoration: none; }
+    .footer-dark a:hover { color: var(--orange-primary); text-decoration: underline; }
+    .social-icons i {
+      font-size: 1.4rem;
+      margin-right: 1rem;
+      color: #ccd6e0;
+      transition: transform 0.2s, color 0.2s;
+    }
+    .social-icons i:hover { color: var(--orange-primary); transform: translateY(-3px); }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.3rem; }
+      .section-title { font-size: 1.9rem; }
+    }
+    .badge-orange {
+      background-color: var(--orange-light);
+      color: var(--orange-dark);
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+    }
+    .info-item { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+    .info-item i { font-size: 1.4rem; color: var(--orange-primary); width: 28px; }
+    .info-item a { color: inherit; text-decoration: none; }
+    .info-item a:hover { color: var(--orange-primary); text-decoration: underline; }
+    .partner-icon {
+      font-size: 2.2rem;
+      color: #4a5b6e;
+      transition: all 0.2s ease;
+      background: white;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+      margin: 0 auto;
+    }
+    .partner-icon:hover {
+      color: var(--orange-primary);
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+    .partner-icon i { font-size: 2.5rem; }
+    .partner-name { font-size: 0.8rem; font-weight: 500; margin-top: 0.5rem; color: #4b5563; }
+  </style>
+</head>
+<body>
+
+<!-- NAVEGAÇÃO -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#inicio">Seguro<span>Prime</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+      <div class="ms-lg-3 mt-2 mt-lg-0">
+        <a href="https://wa.me/551111111111" target="_blank" class="btn btn-orange btn-sm px-4">Cotar agora <i class="bi bi-whatsapp ms-1"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO INÍCIO -->
+<section id="inicio" class="hero-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge-orange d-inline-block mb-3"><i class="bi bi-shield-check"></i> Corretora especializada</span>
+        <h1 class="hero-title">Proteção completa para <span>sua vida, saúde e carro</span></h1>
+        <p class="lead mt-4 text-secondary">Mais de 12 mil clientes confiam na nossa experiência em seguros de Vida, Saúde e Automóvel. Soluções personalizadas com a melhor cobertura e atendimento humano.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#servicos" class="btn btn-orange">Nossos planos</a>
+          <a href="#contato" class="btn btn-outline-orange">Fale com um especialista</a>
+        </div>
+        <div class="row mt-5 g-3">
+          <div class="col-6 col-md-4 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-accent"></i> <span class="small">Cobertura nacional</span></div>
+          <div class="col-6 col-md-4 d-flex align-items-center gap-2"><i class="bi bi-headset text-accent"></i> <span class="small">Suporte 24/7</span></div>
+          <div class="col-6 col-md-4 d-flex align-items-center gap-2"><i class="bi bi-calculator-fill text-accent"></i> <span class="small">Simulação gratuita</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block text-center">
+        <div class="bg-white p-3 rounded-4 shadow-sm d-inline-block">
+          <i class="bi bi-shield-lock-fill" style="font-size: 10rem; color: var(--orange-primary); opacity: 0.85;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="py-5">
+  <div class="container py-4">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 order-lg-2">
+        <h2 class="section-title mb-4">Quem somos</h2>
+        <p class="text-muted mb-3">Somos uma corretora de seguros independente focada em oferecer proteção real e tranquilidade para famílias, condutores e pacientes. Nossos profissionais possuem certificação internacional e mais de 15 anos de mercado.</p>
+        <p class="text-muted mb-4">Trabalhamos com as melhores seguradoras do país para garantir os melhores preços e coberturas abrangentes. Priorizamos a clareza, agilidade na emissão e suporte humanizado nos sinistros e atendimentos de saúde.</p>
+        <div class="d-flex gap-4 flex-wrap">
+          <div><strong class="fs-2 text-accent">98%</strong><br><span class="small">Clientes satisfeitos</span></div>
+          <div><strong class="fs-2 text-accent">+4.200</strong><br><span class="small">Vidas seguradas</span></div>
+          <div><strong class="fs-2 text-accent">+3.8k</strong><br><span class="small">Veículos protegidos</span></div>
+          <div><strong class="fs-2 text-accent">+2.1k</strong><br><span class="small">Planos de saúde</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="bg-soft-accent p-4 rounded-4">
+          <i class="bi bi-quote" style="font-size: 2.5rem; color: var(--orange-primary);"></i>
+          <p class="fst-italic fs-5 text-muted">“A confiança não se compra, conquista-se com transparência e compromisso. É isso que nos move todos os dias.”</p>
+          <hr class="w-25 my-3 opacity-25">
+          <div class="d-flex align-items-center gap-3">
+            <img src="https://ui-avatars.com/api/?background=f47c1f&color=fff&rounded=true&name=DR+OPENBI" width="52" height="52" alt="founder" style="border-radius: 50%;">
+            <div><strong>DR OPENBI</strong><br><small>CEO & Fundador</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="py-5 bg-soft-accent">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <span class="badge-orange">Soluções exclusivas</span>
+      <h2 class="section-title mt-3">Serviços especializados</h2>
+      <p class="text-muted mt-3 mx-auto" style="max-width: 600px;">Proteção inteligente para o que mais importa: sua família, seu veículo e sua saúde.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card card h-100 p-4">
+          <div class="card-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+          <h3 class="fw-bold">Seguro de Vida</h3>
+          <p class="text-secondary">Proteção financeira para seus entes queridos em qualquer imprevisto. Cobertura por morte natural, acidental, invalidez e doenças graves.</p>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Indenização a partir de R$50 mil</li>
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Cobertura vitalícia ou temporária</li>
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Assistência psicológica 24h</li>
+          </ul>
+          <div class="mt-auto"><a href="#contato" class="btn btn-outline-orange w-100 rounded-pill">Simular Seguro de Vida</a></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card card h-100 p-4">
+          <div class="card-icon"><i class="bi bi-car-front-fill"></i></div>
+          <h3 class="fw-bold">Seguro de Carros</h3>
+          <p class="text-secondary">Cobertura completa: colisão, roubo, furto, incêndio e danos a terceiros. Rede credenciada e carro reserva.</p>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Proteção contra terceiros (RCF-V)</li>
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Assistência 24h: guincho, chaveiro, socorro</li>
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Carro reserva + vidros e faróis</li>
+          </ul>
+          <div class="mt-auto"><a href="#contato" class="btn btn-outline-orange w-100 rounded-pill">Cotar Seguro Auto</a></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card card h-100 p-4">
+          <div class="card-icon"><i class="bi bi-hospital-fill"></i></div>
+          <h3 class="fw-bold">Seguro Saúde</h3>
+          <p class="text-secondary">Planos de saúde modulares com ampla rede credenciada, cobertura nacional, atendimento de urgência, exames, consultas e internações.</p>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Rede própria com hospitais e clínicas de excelência</li>
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Cobertura ambulatorial, hospitalar e obstétrica</li>
+            <li><i class="bi bi-check-circle-fill text-accent me-2"></i> Livre escolha entre planos regionais ou nacionais</li>
+          </ul>
+          <div class="mt-auto"><a href="#contato" class="btn btn-outline-orange w-100 rounded-pill">Simular Seguro Saúde</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5 justify-content-center">
+      <div class="col-lg-10 text-center bg-white rounded-4 p-4 shadow-sm">
+        <i class="bi bi-stars fs-1 text-accent"></i>
+        <p class="mb-0 mt-2 text-muted">Oferecemos gestão de renovação automática, análise de risco personalizada e portabilidade de seguros. Nossa equipe está pronta para te atender com agilidade e expertise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCEIROS / ÍCONES DE SEGURADORAS -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge-orange">Seguradoras parceiras</span>
+      <h2 class="section-title mt-3">Confiança das maiores</h2>
+      <p class="text-muted mt-2">Trabalhamos com as principais seguradoras do país para oferecer as melhores coberturas.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-3 col-lg-2 text-center">
+        <div class="partner-icon"><i class="bi bi-building"></i></div>
+        <div class="partner-name">Porto Seguro</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 text-center">
+        <div class="partner-icon"><i class="bi bi-shield-shaded"></i></div>
+        <div class="partner-name">SulAmérica</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 text-center">
+        <div class="partner-icon"><i class="bi bi-bank2"></i></div>
+        <div class="partner-name">Bradesco Seguros</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 text-center">
+        <div class="partner-icon"><i class="bi bi-gem"></i></div>
+        <div class="partner-name">Tokio Marine</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 text-center">
+        <div class="partner-icon"><i class="bi bi-tree"></i></div>
+        <div class="partner-name">Allianz</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 text-center">
+        <div class="partner-icon"><i class="bi bi-hospital"></i></div>
+        <div class="partner-name">Amil Saúde</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO + FORMULÁRIO COM ENVIO DE E-MAIL -->
+<section id="contato" class="py-5">
+  <div class="container py-4">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <span class="badge-orange">Fale conosco</span>
+        <h2 class="section-title mt-2">Vamos conversar?</h2>
+        <p class="text-muted mt-3 mb-4">Solicite uma simulação gratuita. Nossos corretores retornam em até 2 horas úteis.</p>
+        <div class="contact-info mt-4">
+          <div class="info-item"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/551111111111" target="_blank">(11) 1111-1111</a></div>
+          <div class="info-item"><i class="bi bi-envelope-paper"></i> <span>contato@openbiti.com</span></div>
+          <div class="info-item"><i class="bi bi-geo-alt"></i> <span>Av. openbi, 1000 - São Paulo - SP</span></div>
+        </div>
+        <hr class="my-4">
+        <div class="social-icons">
+          <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
+          <a href="https://wa.me/551111111111" target="_blank"><i class="bi bi-whatsapp"></i></a>
+          <p class="small text-secondary mt-3">Acompanhe dicas e novidades sobre seguros.</p>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="contact-form">
+          <h4 class="fw-semibold mb-3">Envie sua mensagem</h4>
+          <form id="contactForm" action="https://formsubmit.co/contato@openbiti.com" method="POST" target="_blank">
+            <input type="hidden" name="_subject" value="Novo contato - SeguroPrime">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://seguroprime.com.br/obrigado">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Nome completo *</label>
+                <input type="text" name="nome" class="form-control" placeholder="Seu nome" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Telefone</label>
+                <input type="tel" name="telefone" class="form-control" placeholder="(00) 00000-0000">
+              </div>
+              <div class="col-12">
+                <label class="form-label">E-mail *</label>
+                <input type="email" name="email" class="form-control" placeholder="seuemail@exemplo.com" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Tipo de seguro que deseja *</label>
+                <select name="tipo_seguro" class="form-select" required>
+                  <option value="Seguro de Vida">Seguro de Vida</option>
+                  <option value="Seguro de Carros">Seguro de Carros</option>
+                  <option value="Seguro Saúde">Seguro Saúde</option>
+                  <option value="Ambos (Vida + Auto)">Ambos (Vida + Auto)</option>
+                  <option value="Outro / Dúvida">Outro / Dúvida</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Mensagem ou observação</label>
+                <textarea name="mensagem" class="form-control" rows="4" placeholder="Gostaria de cotar um seguro com cobertura ampla..."></textarea>
+              </div>
+              <div class="col-12 mt-3">
+                <button type="submit" class="btn btn-orange w-100 py-2 rounded-pill"><i class="bi bi-send"></i> Enviar solicitação</button>
+                <p class="small text-muted mt-3 text-center">* Campos obrigatórios. Ao enviar você concorda com nossa política de privacidade.<br>Você será redirecionado para uma página de confirmação após o envio.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-dark">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <h4 class="fw-bold text-white mb-3">Seguro<span class="text-accent">Prime</span></h4>
+        <p class="small">Excelência em seguros de Vida, Auto e Saúde. Proteção inteligente com o melhor custo-benefício.</p>
+        <p><i class="bi bi-telephone-fill me-2"></i> Central: (11) 1111-1111</p>
+      </div>
+      <div class="col-md-2">
+        <h6 class="fw-bold text-white">Navegação</h6>
+        <ul class="list-unstyled">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h6 class="fw-bold text-white">Seguros</h6>
+        <ul class="list-unstyled">
+          <li><a href="#servicos">Seguro de Vida</a></li>
+          <li><a href="#servicos">Seguro de Carros</a></li>
+          <li><a href="#servicos">Seguro Saúde</a></li>
+          <li><a href="#contato">Consultoria Premium</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h6 class="fw-bold text-white">Atendimento</h6>
+        <p class="small mb-0"><i class="bi bi-envelope"></i> contato@openbiti.com</p>
+        <p class="small"><i class="bi bi-clock"></i> Seg-Sex: 8h às 20h | Sáb: 9h às 14h</p>
+        <div class="mt-2">
+          <a href="#" class="me-2"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#" class="me-2"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="https://wa.me/551111111111" target="_blank"><i class="bi bi-whatsapp fs-5"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="mt-4 opacity-25">
+    <div class="text-center small pt-2">
+      &copy; 2025 SeguroPrime - Corretora de Seguros. Todos os direitos reservados. | Textos institucionais para demonstração.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Smooth scroll e active link no menu
+  (function() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    function changeActiveLink() {
+      let current = '';
+      const scrollPos = window.scrollY + 150;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href').substring(1);
+        if (href === current) link.classList.add('active');
+      });
+    }
+    window.addEventListener('scroll', changeActiveLink);
+    changeActiveLink();
+
+    document.querySelectorAll('.navbar-nav a[href^="#"], .btn-orange[href^="#"], .btn-outline-orange[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== "#" && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  })();
+</script>
+<!-- SELO FLUTUANTE com cores do tema azul -->
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 999; background: #0AB92A; color: white; padding: 12px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.2); backdrop-filter: blur(4px); cursor: pointer; font-family: 'Inter', sans-serif;" onclick="alert('📩 Entre em contato para adquirir este template!\nE-mail: contato@openbiti.com\nWhatsApp: (11) 98196-4264')">
+    <i class="fas fa-tag me-2"></i> Template disponível para venda - OPENBITI
+</div>
+</body>
+</html>

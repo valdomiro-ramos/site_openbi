@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>OPENBITIServ | Pintura, Limpeza de Caixa d'Água, Pisos e Cerâmicas</title>
+    <!-- Bootstrap 5 CSS + Icons + Font Awesome 6 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: modern sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #5c3a21 0%, #6b4c34 30%, #7c6b5e 70%, #8f8c89 100%);
+            background-attachment: fixed;
+            position: relative;
+            color: #1e1e1e;
+            scroll-behavior: smooth;
+        }
+
+        /* ========= ÍCONES DE PINTURA, ACABAMENTOS, CONSTRUÇÃO (FUNDO) ========= */
+        .construction-symbols-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            opacity: 0.12;
+        }
+
+        .construction-symbols-bg i {
+            position: absolute;
+            color: #2c2c2c;
+            font-size: 4rem;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+            animation: floatSymbols 20s infinite alternate ease-in-out;
+        }
+
+        /* ícones variados de pintura, ferramentas, tijolos, etc */
+        .construction-symbols-bg i:nth-child(1) { top: 12%; left: 5%; font-size: 5rem; animation-duration: 18s; }
+        .construction-symbols-bg i:nth-child(2) { top: 70%; left: 85%; font-size: 6rem; animation-duration: 24s; animation-delay: -2s; }
+        .construction-symbols-bg i:nth-child(3) { top: 40%; left: 20%; font-size: 3.5rem; animation-duration: 15s; }
+        .construction-symbols-bg i:nth-child(4) { top: 85%; left: 15%; font-size: 4.2rem; animation-duration: 22s; }
+        .construction-symbols-bg i:nth-child(5) { top: 25%; left: 78%; font-size: 5rem; animation-duration: 19s; }
+        .construction-symbols-bg i:nth-child(6) { top: 55%; left: 48%; font-size: 4.8rem; animation-duration: 27s; }
+        .construction-symbols-bg i:nth-child(7) { top: 8%; left: 92%; font-size: 4rem; animation-duration: 21s; }
+        .construction-symbols-bg i:nth-child(8) { top: 92%; left: 55%; font-size: 5.5rem; animation-duration: 25s; }
+        .construction-symbols-bg i:nth-child(9) { top: 48%; left: 88%; font-size: 3.8rem; animation-duration: 17s; }
+        .construction-symbols-bg i:nth-child(10) { top: 15%; left: 35%; font-size: 4.5rem; animation-duration: 30s; }
+        .construction-symbols-bg i:nth-child(11) { top: 60%; left: 10%; font-size: 3.2rem; animation-duration: 20s; }
+        .construction-symbols-bg i:nth-child(12) { top: 78%; left: 70%; font-size: 4.3rem; animation-duration: 28s; }
+
+        @keyframes floatSymbols {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.5; }
+            100% { transform: translateY(-25px) rotate(8deg); opacity: 1; }
+        }
+
+        /* camada de conteúdo acima dos ícones */
+        .content-layer {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* navbar moderna com blur e bordas */
+        .navbar-modern {
+            background: rgba(35, 25, 20, 0.85);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            border-bottom: 1px solid rgba(210, 180, 140, 0.3);
+        }
+
+        .navbar-modern .navbar-brand {
+            font-weight: 700;
+            font-size: 1.7rem;
+            color: #f8ede3;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-modern .nav-link {
+            color: #f0e2d8 !important;
+            font-weight: 500;
+            margin: 0 5px;
+            transition: 0.2s;
+            border-radius: 30px;
+        }
+
+        .navbar-modern .nav-link:hover {
+            background: rgba(210, 160, 110, 0.4);
+            color: #ffffff !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-toggler {
+            border-color: #d9b48b;
+        }
+
+        /* cards com vidro fosco e profundidade */
+        .service-card {
+            background: rgba(255, 248, 240, 0.95);
+            border: none;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            backdrop-filter: blur(2px);
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 40px -14px rgba(0, 0, 0, 0.35);
+            background: #ffffff;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #8b5a2b;
+            margin-bottom: 1rem;
+        }
+
+        .btn-brown {
+            background: #7b4a2a;
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn-brown:hover {
+            background: #5a3920;
+            transform: scale(0.96);
+            color: #f9e6d5;
+        }
+
+        .btn-outline-brown {
+            border: 2px solid #7b4a2a;
+            background: transparent;
+            color: #7b4a2a;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        .btn-outline-brown:hover {
+            background: #7b4a2a;
+            color: white;
+        }
+
+        .section-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #402b1c, #2b2b2b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .collapse-text {
+            border-top: 1px solid #e0cfbe;
+            margin-top: 16px;
+            padding-top: 14px;
+            font-size: 0.95rem;
+            color: #3d2a1c;
+        }
+
+        .faq-accordion .accordion-item {
+            background: rgba(255, 248, 240, 0.9);
+            border: none;
+            margin-bottom: 12px;
+            border-radius: 24px !important;
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+        }
+
+        .faq-accordion .accordion-button {
+            background: #f3ede7;
+            font-weight: 700;
+            color: #4b2e1a;
+            border-radius: 24px;
+        }
+
+        .faq-accordion .accordion-button:not(.collapsed) {
+            background: #e5d8cd;
+            color: #3b2413;
+        }
+
+        .contact-card {
+            background: rgba(255, 250, 240, 0.9);
+            border-radius: 40px;
+            backdrop-filter: blur(6px);
+            padding: 2rem;
+            border: 1px solid rgba(139, 69, 19, 0.3);
+        }
+
+        footer {
+            background: #1f1915e6;
+            backdrop-filter: blur(10px);
+            color: #ddd2c6;
+            border-top: 1px solid #b67e54;
+        }
+
+        .hero-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 60px;
+            backdrop-filter: brightness(0.98) blur(2px);
+        }
+
+        /* Botão flutuante de fechar (para mobile fechar menu) */
+        .btn-close-mobile {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #7b4a2a;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1050;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+            font-size: 1.5rem;
+        }
+        .btn-close-mobile:hover {
+            background: #5a3920;
+            transform: scale(1.05);
+        }
+        @media (min-width: 992px) {
+            .btn-close-mobile {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.9rem;
+            }
+            .service-card {
+                margin-bottom: 20px;
+            }
+            .navbar-modern .navbar-brand {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ícones de pintura, acabamentos, tijolos e construção -->
+<div class="construction-symbols-bg">
+    <i class="fas fa-paint-brush"></i>
+    <i class="fas fa-paint-roller"></i>
+    <i class="fas fa-trowel"></i>      <!-- desempenadeira / tijolinhos -->
+    <i class="fas fa-hard-hat"></i>
+    <i class="fas fa-brick"></i>        <!-- tijolo -->
+    <i class="fas fa-hammer"></i>
+    <i class="fas fa-level-up-alt"></i> <!-- nível -->
+    <i class="fas fa-screwdriver-wrench"></i>
+    <i class="fas fa-tools"></i>
+    <i class="fas fa-palette"></i>      <!-- paleta de pintor -->
+    <i class="fas fa-drafting-compass"></i>
+    <i class="fas fa-cube"></i>          <!-- blocos -->
+    <i class="fas fa-th-large"></i>     <!-- cerâmica / piso -->
+</div>
+
+<div class="content-layer">
+    <!-- Barra de navegação responsiva -->
+    <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brush me-2"></i>OPENBITIServ
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#inicio"><i class="fas fa-home me-1"></i>Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos"><i class="fas fa-tools me-1"></i>Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre"><i class="fas fa-users me-1"></i>Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato"><i class="fas fa-envelope me-1"></i>Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq"><i class="fas fa-question-circle me-1"></i>Dúvidas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#orcamento"><i class="fas fa-calculator me-1"></i>Orçamento</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="container pt-5 mt-4">
+        <div class="hero-section p-4 p-md-5 mb-5 text-center text-white shadow-lg" style="background: rgba(70, 45, 30, 0.6); backdrop-filter: blur(2px); border-radius: 56px;">
+            <h1 class="display-4 fw-bold">Soluções completas para seu lar</h1>
+            <p class="lead fs-4">Pintura profissional · Limpeza de caixa d'água · Instalação de pisos e cerâmicas</p>
+            <hr class="my-4 w-25 mx-auto" style="height: 3px; background: #d9b48b;">
+            <p class="mb-4">Qualidade, segurança e modernidade nos serviços gerais que sua residência merece.</p>
+            <a href="#servicos" class="btn btn-brown btn-lg px-4 py-2"><i class="fas fa-arrow-down me-2"></i>Nossos serviços</a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO SERVIÇOS PRINCIPAIS (COM EFEITO COLLAPSE NOS TEXTOS) -->
+    <section id="servicos" class="container my-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title"><i class="fas fa-concierge-bell me-3"></i>Serviços especializados</h2>
+            <p class="fs-5 text-light bg-dark bg-opacity-25 d-inline-block px-4 py-1 rounded-pill">Clique em "Saiba mais" para detalhes completos</p>
+        </div>
+        <div class="row g-4">
+            <!-- Serviço 1: Pintura -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card card h-100 p-4">
+                    <div class="text-center">
+                        <i class="fas fa-paint-roller card-icon"></i>
+                        <h3 class="fw-bold">Pintura residencial</h3>
+                        <p class="text-secondary">Acabamento impecável em paredes internas e externas, com tintas premium.</p>
+                        <button class="btn btn-outline-brown mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#pinturaDetails" aria-expanded="false" aria-controls="pinturaDetails">
+                            <i class="fas fa-chevron-circle-down me-1"></i> Saiba mais
+                        </button>
+                        <div class="collapse mt-3" id="pinturaDetails">
+                            <div class="collapse-text text-start">
+                                <i class="fas fa-check-circle text-success me-1"></i> <strong>Detalhes completos:</strong><br>
+                                ➜ Preparação completa de superfícies (massas, lixamento).<br>
+                                ➜ Utilização de tintas acrílicas e ecológicas.<br>
+                                ➜ Proteção de móveis e pisos com lonas.<br>
+                                ➜ Garantia de 3 anos contra descascamento.<br>
+                                <span class="badge bg-brown mt-2">Profissionais certificados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Serviço 2: Limpeza de caixa d'água -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card card h-100 p-4">
+                    <div class="text-center">
+                        <i class="fas fa-water card-icon"></i>
+                        <h3 class="fw-bold">Limpeza de caixa d'água</h3>
+                        <p class="text-secondary">Higienização completa seguindo normas ABNT NBR 5626, água pura e saudável.</p>
+                        <button class="btn btn-outline-brown mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#limpezaDetails" aria-expanded="false" aria-controls="limpezaDetails">
+                            <i class="fas fa-chevron-circle-down me-1"></i> Saiba mais
+                        </button>
+                        <div class="collapse mt-3" id="limpezaDetails">
+                            <div class="collapse-text text-start">
+                                <i class="fas fa-shield-alt text-primary me-1"></i> <strong>Protocolo profissional:</strong><br>
+                                ✅ Esvaziamento e aspiração de resíduos.<br>
+                                ✅ Escovação com produtos atóxicos.<br>
+                                ✅ Desinfecção com cloro e enxágue.<br>
+                                ✅ Coleta de amostra para análise opcional.<br>
+                                <i class="fas fa-calendar-alt"></i> Frequência recomendada: a cada 6 meses.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Serviço 3: Instalação de pisos e cerâmicas -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card card h-100 p-4">
+                    <div class="text-center">
+                        <i class="fas fa-border-all card-icon"></i>
+                        <h3 class="fw-bold">Pisos e Cerâmicas</h3>
+                        <p class="text-secondary">Instalação de porcelanato, cerâmica, vinílico e laminados com excelência.</p>
+                        <button class="btn btn-outline-brown mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#pisosDetails" aria-expanded="false" aria-controls="pisosDetails">
+                            <i class="fas fa-chevron-circle-down me-1"></i> Saiba mais
+                        </button>
+                        <div class="collapse mt-3" id="pisosDetails">
+                            <div class="collapse-text text-start">
+                                <i class="fas fa-ruler-combined"></i> <strong>Etapas técnicas:</strong><br>
+                                🔸 Regularização do contrapiso e nivelamento.<br>
+                                🔸 Aplicação de argamassa e rejunte de alta performance.<br>
+                                🔸 Corte preciso para encaixes perfeitos.<br>
+                                🔸 Finalização e limpeza pós-obra.<br>
+                                <span class="fw-semibold">*Inclui cerâmica, porcelanato e pastilhas.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção extra: Outros serviços + cards modernos (texto recolhível também) -->
+    <section class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-12 text-center mb-4">
+                <h2 class="section-title"><i class="fas fa-microchip me-2"></i> + Soluções integradas</h2>
+                <p>Manutenção geral e serviços complementares com mesmo padrão de qualidade</p>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="contact-card p-4">
+                    <i class="fas fa-broom fa-2x mb-2" style="color:#7b4a2a;"></i>
+                    <h4>Limpeza pós-obra</h4>
+                    <p>Remoção de resíduos pesados, poeira fina e higienização completa de ambientes reformados.</p>
+                    <button class="btn btn-sm btn-brown" type="button" data-bs-toggle="collapse" data-bs-target="#limpezaObra" aria-expanded="false"> <i class="fas fa-plus-circle"></i> Detalhes</button>
+                    <div class="collapse mt-2" id="limpezaObra">
+                        <div class="alert alert-light mt-2">Utilizamos máquinas profissionais e produtos que não agridem superfícies. Ideal pós reformas.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="contact-card p-4">
+                    <i class="fas fa-chalkboard-user fa-2x mb-2" style="color:#7b4a2a;"></i>
+                    <h4>Consultoria & Orçamento</h4>
+                    <p>Avaliação gratuita no local para indicar os melhores materiais e prazos.</p>
+                    <button class="btn btn-sm btn-brown" type="button" data-bs-toggle="collapse" data-bs-target="#consultoriaDetalhe" aria-expanded="false"> <i class="fas fa-plus-circle"></i> Agendar</button>
+                    <div class="collapse mt-2" id="consultoriaDetalhe">
+                        <div class="alert alert-light mt-2">Nossa equipe técnica visita sua residência sem compromisso, apresenta relatório e cronograma.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre nós -->
+    <section id="sobre" class="container my-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title"><i class="fas fa-building me-2"></i> Sobre a OPENBITIServ</h2>
+                <p class="lead">Atuamos no mercado há mais de 12 anos, especialistas em serviços gerais com foco em excelência e satisfação total.</p>
+                <p>Nossa equipe é treinada e capacitada para execução de pintura, limpeza de caixas d'água seguindo rigorosamente as normas de segurança, e instalação de revestimentos cerâmicos com garantia estendida. Acreditamos que cada detalhe transforma ambientes.</p>
+                <div class="row mt-4">
+                    <div class="col-6"><i class="fas fa-check-circle text-success"></i> Profissionais próprios</div>
+                    <div class="col-6"><i class="fas fa-check-circle text-success"></i> Atendimento 24h emergencial</div>
+                    <div class="col-6"><i class="fas fa-check-circle text-success"></i> Garantia em todos serviços</div>
+                    <div class="col-6"><i class="fas fa-check-circle text-success"></i> Produtos sustentáveis</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-white p-4 rounded-4 shadow text-center">
+                    <i class="fas fa-medal fa-4x" style="color:#8b5a2b"></i>
+                    <h4 class="mt-2">Certificações</h4>
+                    <p>Registro no CREA e alvarás atualizados. Seguimos NR-35 para trabalho em altura (limpeza de caixas d'água).</p>
+                    <i class="fas fa-award fa-2x"></i> <i class="fas fa-hard-hat ms-3 fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accordion FAQ (Efeito de textos que recolhem adicional) -->
+    <section id="faq" class="container my-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title">Perguntas frequentes <i class="fas fa-comment-dots"></i></h2>
+            <p>Clique nas perguntas para ver as respostas (recolher/expandir)</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion faq-accordion" id="accordionFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">Qual o prazo para limpeza de caixa d'água?</button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">O serviço completo leva em média 2 a 3 horas, dependendo do tamanho do reservatório. Garantimos reuso da água após tratamento adequado.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Vocês fornecem material para pintura?</button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">Sim, trabalhamos com fornecimento de tintas e materiais de qualidade ou apenas mão de obra. Você escolhe a melhor opção no orçamento.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">A instalação de pisos cerâmicos tem garantia?</button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">Oferecemos garantia de 2 anos contra descolamento e falhas de nivelamento. Realizamos vistoria técnica trimestral mediante contrato.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Como agendar uma visita para orçamento?</button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">Basta preencher o formulário de contato ou ligar no número (11) 98765-4321. Nossa equipe retorna em até 2h úteis.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato + orçamento rápido -->
+    <section id="contato" class="container my-5">
+        <div class="contact-card p-4 p-md-5">
+            <div class="row">
+                <div class="col-md-5 mb-4 mb-md-0">
+                    <h3 class="fw-bold"><i class="fas fa-phone-alt me-2"></i> Fale conosco</h3>
+                    <p><i class="fab fa-whatsapp text-success me-2"></i> (11) 98765-4321</p>
+                    <p><i class="fas fa-envelope me-2"></i> contato@openbitiserv.com.br</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Av. OPENBITI, 1000 - São Paulo/SP</p>
+                    <hr>
+                    <div class="mt-3">
+                        <i class="fab fa-instagram fa-2x me-3" style="color:#7b4a2a"></i>
+                        <i class="fab fa-facebook fa-2x me-3" style="color:#7b4a2a"></i>
+                        <i class="fab fa-linkedin fa-2x" style="color:#7b4a2a"></i>
+                    </div>
+                </div>
+                <div class="col-md-7" id="orcamento">
+                    <h4 class="mb-3"><i class="fas fa-calculator"></i> Solicite orçamento</h4>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Seu nome completo">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="E-mail para contato">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select">
+                                <option selected>Escolha o serviço principal</option>
+                                <option>Pintura residencial</option>
+                                <option>Limpeza de caixa d'água</option>
+                                <option>Instalação de pisos/cerâmicas</option>
+                                <option>Serviço completo</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="3" placeholder="Descreva sua necessidade ou dúvida"></textarea>
+                        </div>
+                        <button class="btn btn-brown w-100"><i class="fas fa-paper-plane"></i> Enviar orçamento</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-5 py-4 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-md-start">
+                    <p class="mb-0"><i class="fas fa-copyright me-1"></i> 2025 OPENBITIServ - Serviços Gerais. Qualidade que transforma ambientes.</p>
+                    <small>Pintura | Caixa d'água | Pisos e Cerâmicas | Modernidade e confiança</small>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white-50 text-decoration-none me-3">Política de Privacidade</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Botão flutuante de fechar (para mobile: fecha o menu se estiver aberto) -->
+<button class="btn-close-mobile" id="closeMenuBtn" aria-label="Fechar menu">
+    <i class="fas fa-times"></i>
+</button>
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Smooth scroll para links âncora
+    document.querySelectorAll('.navbar-nav a, a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== "#" && targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Se o menu mobile estiver aberto, fecha após clicar no link (melhor experiência)
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        new bootstrap.Collapse(navbarCollapse).toggle();
+                    }
+                }
+            }
+        });
+    });
+
+    // Botão "fechar" para mobile: força o fechamento do menu hamburguer caso esteja aberto
+    const closeBtn = document.getElementById('closeMenuBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                new bootstrap.Collapse(navbarCollapse).toggle();
+            } else {
+                // Se não houver menu aberto, apenas rola suavemente para o topo (opcional)
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    }
+</script>
+</body>
+</html>

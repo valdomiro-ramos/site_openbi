@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luís F.N. Dos Santos Ltda</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #6b3e26;
+            --secondary-brown: #8b5a3c;
+            --light-brown: #d4b8a4;
+            --cream: #f8f3ef;
+            --dark-brown: #3e2316;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: #2c2c2c;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .navbar {
+            background: rgba(255, 248, 244, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(107, 62, 38, 0.08);
+            border-bottom: 2px solid var(--light-brown);
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.7rem;
+            color: var(--primary-brown) !important;
+            letter-spacing: -0.5px;
+        }
+        .navbar-brand i {
+            color: var(--secondary-brown);
+            margin-right: 8px;
+        }
+        .nav-link {
+            color: var(--dark-brown) !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--primary-brown) !important;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #f8f3ef 0%, #e8ddd0 100%);
+            padding: 140px 0 100px 0;
+            margin-top: 76px;
+            border-bottom: 1px solid var(--light-brown);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 90, 60, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--dark-brown);
+            font-size: 3.8rem;
+            line-height: 1.1;
+        }
+        .hero-section .highlight {
+            color: var(--primary-brown);
+            position: relative;
+        }
+        .hero-section .highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 5px;
+            width: 100%;
+            height: 6px;
+            background: var(--light-brown);
+            opacity: 0.5;
+            border-radius: 4px;
+        }
+        .hero-section .lead {
+            color: #4a3a32;
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+        .hero-badge {
+            background: var(--primary-brown);
+            color: white;
+            border-radius: 50px;
+            padding: 8px 24px;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        /* Imagem do lado direito - estilo couro */
+        .leather-image-card {
+            background: linear-gradient(145deg, #5a3a28, #3e2316);
+            border-radius: 24px;
+            padding: 30px 20px 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(62, 35, 22, 0.3);
+            border: 1px solid rgba(212, 184, 164, 0.2);
+            position: relative;
+            overflow: hidden;
+            max-width: 320px;
+            margin-left: auto;
+        }
+        .leather-image-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 70% 30%, rgba(212, 184, 164, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .leather-image-card .leather-icon {
+            font-size: 4.5rem;
+            color: #d4b8a4;
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.9;
+        }
+        .leather-image-card .leather-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: #f0e4d8;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .leather-image-card .leather-subtitle {
+            color: #b8a095;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: 300;
+        }
+        .leather-image-card .leather-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4b8a4, transparent);
+            margin: 12px auto;
+        }
+        .leather-image-card .leather-texture {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .leather-image-card .leather-texture span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+            background: #8b5a3c;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .leather-image-card .leather-texture span:nth-child(2) { background: #a87b5a; }
+        .leather-image-card .leather-texture span:nth-child(3) { background: #6b4a32; }
+        .leather-image-card .leather-texture span:nth-child(4) { background: #c49a7a; }
+        .leather-image-card .leather-texture span:nth-child(5) { background: #5a3a28; }
+        .leather-image-card .leather-texture span:hover { opacity: 1; }
+        /* Fim da imagem */
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--dark-brown);
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-brown), var(--light-brown));
+            border-radius: 4px;
+        }
+        .card-leather {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(107, 62, 38, 0.07);
+            transition: all 0.4s ease;
+            padding: 2rem 1.5rem;
+            height: 100%;
+            border-bottom: 4px solid var(--light-brown);
+        }
+        .card-leather:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(107, 62, 38, 0.12);
+            border-bottom-color: var(--primary-brown);
+        }
+        .card-leather .card-icon {
+            font-size: 2.8rem;
+            color: var(--secondary-brown);
+            background: var(--cream);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+        .btn-leather {
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 36px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 14px rgba(107, 62, 38, 0.3);
+        }
+        .btn-leather:hover {
+            background: var(--dark-brown);
+            transform: scale(1.02);
+            color: white;
+            box-shadow: 0 6px 20px rgba(107, 62, 38, 0.4);
+        }
+        .btn-outline-leather {
+            border: 2px solid var(--primary-brown);
+            color: var(--primary-brown);
+            background: transparent;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-outline-leather:hover {
+            background: var(--primary-brown);
+            color: white;
+        }
+        .about-text {
+            color: #4a3a32;
+            line-height: 1.8;
+        }
+        .year-badge {
+            background: var(--cream);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--primary-brown);
+            border: 1px solid var(--light-brown);
+        }
+        .footer {
+            background: var(--dark-brown);
+            color: #d4c5ba;
+            padding: 50px 0 30px;
+            border-radius: 40px 40px 0 0;
+            margin-top: 60px;
+        }
+        .footer a {
+            color: #b8a69a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: white;
+        }
+        .footer .social-icon {
+            background: rgba(255,255,255,0.06);
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .footer .social-icon:hover {
+            background: var(--primary-brown);
+        }
+        .lang-dropdown .dropdown-toggle {
+            background: transparent;
+            border: 1px solid var(--light-brown);
+            border-radius: 30px;
+            padding: 6px 18px;
+            font-weight: 500;
+            color: var(--dark-brown);
+        }
+        .lang-dropdown .dropdown-toggle:hover {
+            background: var(--cream);
+        }
+        .lang-dropdown .dropdown-menu {
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .lang-dropdown .dropdown-item.active {
+            background: var(--cream);
+            color: var(--primary-brown);
+        }
+        @media (max-width: 992px) {
+            .leather-image-card {
+                margin: 30px auto 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+                text-align: center;
+            }
+            .hero-section h1 {
+                font-size: 2.6rem;
+            }
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .section-title {
+                text-align: center;
+            }
+            .leather-image-card {
+                max-width: 260px;
+            }
+            .leather-image-card .leather-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-gem"></i> Luís F.N. Santos
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <!-- Language Selector -->
+                <div class="lang-dropdown dropdown">
+                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe2 me-1"></i> <span id="currentLangLabel">PT</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item active" href="#" data-lang="pt" onclick="changeLanguage('pt')">Português</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="it" onclick="changeLanguage('it')">Italiano</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="en" onclick="changeLanguage('en')">English</a></li>
+                    </ul>
+                </div>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#sobre" data-key="nav-sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos" data-key="nav-servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#representacoes" data-key="nav-rep">Representações</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contactos" data-key="nav-contactos">Contactos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-badge">
+                        <i class="bi bi-award me-2"></i> <span data-key="hero-badge">Desde 1985</span>
+                    </div>
+                    <h1 class="mb-4">
+                        <span data-key="hero-title1">Representante de</span><br>
+                        <span class="highlight" data-key="hero-title2">Fábricas Italianas</span><br>
+                        <span data-key="hero-title3">de Curtumes</span>
+                    </h1>
+                    <p class="lead mb-4" data-key="hero-sub">Inovadora, Confiável, Exemplar e Pioneira no fornecimento de couros de alta qualidade para a indústria calçadista.</p>
+                    <a href="#contactos" class="btn btn-leather me-3" data-key="hero-cta">Solicitar Orçamento</a>
+                    <a href="#sobre" class="btn btn-outline-leather" data-key="hero-cta2">Conheça a História</a>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block text-end">
+                    <!-- NOVA IMAGEM ESTILO COURO ITALIANO -->
+                    <div class="leather-image-card">
+                        <i class="bi bi-box-seam leather-icon"></i>
+                        <div class="leather-title">COURO</div>
+                        <div class="leather-divider"></div>
+                        <div class="leather-subtitle">Italiano</div>
+                        <div class="leather-texture">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <div style="margin-top: 16px; font-size: 0.7rem; color: #8b7a6e; letter-spacing: 2px; font-weight: 300;">
+                            <i class="bi bi-diamond-fill" style="font-size: 0.4rem; margin: 0 4px;"></i>
+                            QUALITÀ <i class="bi bi-diamond-fill" style="font-size: 0.4rem; margin: 0 4px;"></i>
+                            TRADIZIONE <i class="bi bi-diamond-fill" style="font-size: 0.4rem; margin: 0 4px;"></i>
+                            ECCELLENZA
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <span class="year-badge mb-3 d-inline-block" data-key="sobre-badge">A nossa história</span>
+                    <h2 class="section-title mb-4" data-key="sobre-titulo">Luís F.N. Dos Santos Ltda</h2>
+                    <div class="about-text">
+                        <p data-key="sobre-texto1"><strong>Com início a 28 de fevereiro de 1985 e sede em São João da Madeira,</strong> a empresa dedica-se à representação de fábricas italianas de curtumes para a indústria de calçado.</p>
+                        <p data-key="sobre-texto2">Com quase quatro décadas de experiência, a empresa é reconhecida pela sua dedicação, profissionalismo e compromisso para atender às necessidades do setor, oferecendo couros que aliam tradição e inovação.</p>
+                        <p data-key="sobre-texto3">A nossa equipa atua como ponte entre a excelência da curtimenta italiana e os fabricantes de calçado portugueses, garantindo qualidade, rastreabilidade e soluções sob medida.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="card-leather text-center p-4">
+                                <div class="card-icon mx-auto"><i class="bi bi-calendar2-week"></i></div>
+                                <h5 class="fw-bold" data-key="sobre-missao">+35 Anos</h5>
+                                <p class="small text-muted" data-key="sobre-missao-text">Experiência no mercado</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card-leather text-center p-4">
+                                <div class="card-icon mx-auto"><i class="bi bi-building"></i></div>
+                                <h5 class="fw-bold" data-key="sobre-visao">Itália & Portugal</h5>
+                                <p class="small text-muted" data-key="sobre-visao-text">Conexão entre dois mundos</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card-leather text-center p-4">
+                                <div class="card-icon mx-auto"><i class="bi bi-trophy"></i></div>
+                                <h5 class="fw-bold" data-key="sobre-valor">Excelência</h5>
+                                <p class="small text-muted" data-key="sobre-valor-text">Qualidade reconhecida</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card-leather text-center p-4">
+                                <div class="card-icon mx-auto"><i class="bi bi-person-check"></i></div>
+                                <h5 class="fw-bold" data-key="sobre-conf">Confiabilidade</h5>
+                                <p class="small text-muted" data-key="sobre-conf-text">Parceiro de confiança</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="py-5" style="background: white;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="year-badge" data-key="servicos-badge">O que oferecemos</span>
+                <h2 class="section-title mt-3" data-key="servicos-titulo">Serviços e Valores</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card-leather text-center">
+                        <div class="card-icon mx-auto"><i class="bi bi-box-seam"></i></div>
+                        <h5 class="fw-bold" data-key="servico1-titulo">Fornecimento de Couros</h5>
+                        <p class="text-muted small" data-key="servico1-text">Couros de alta qualidade de curtumes italianos selecionados, com variedade de acabamentos e cores.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-leather text-center">
+                        <div class="card-icon mx-auto"><i class="bi bi-handshake"></i></div>
+                        <h5 class="fw-bold" data-key="servico2-titulo">Representação Comercial</h5>
+                        <p class="text-muted small" data-key="servico2-text">Intermediação direta entre fábricas italianas e a indústria calçadista portuguesa.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-leather text-center">
+                        <div class="card-icon mx-auto"><i class="bi bi-search"></i></div>
+                        <h5 class="fw-bold" data-key="servico3-titulo">Consultoria Técnica</h5>
+                        <p class="text-muted small" data-key="servico3-text">Aconselhamento sobre a melhor matéria-prima para cada tipo de calçado, tendências e inovações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPRESENTAÇÕES -->
+    <section id="representacoes" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 order-lg-2">
+                    <span class="year-badge" data-key="rep-badge">Parcerias</span>
+                    <h2 class="section-title mb-4" data-key="rep-titulo">Representações</h2>
+                    <p class="about-text" data-key="rep-texto1">Representamos com exclusividade um grupo seleto de curtumes italianos, reconhecidos pela sua tradição, inovação e sustentabilidade. A nossa carteira de parceiros inclui fábricas com décadas de experiência na produção de couros para calçado de luxo, casual e desportivo.</p>
+                    <p class="about-text" data-key="rep-texto2">Trabalhamos em estreita colaboração com os nossos clientes para garantir que cada lote de couro atenda às especificações técnicas e estéticas exigidas, desde a seleção da matéria-prima até à entrega final.</p>
+                    <a href="#contactos" class="btn btn-leather mt-3" data-key="rep-cta">Torne-se nosso parceiro</a>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="bg-white p-5 rounded-4 shadow-sm" style="border-left: 6px solid var(--primary-brown);">
+                        <div class="d-flex flex-column gap-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-check-circle-fill" style="color: var(--primary-brown); font-size: 1.8rem;"></i>
+                                <div><h6 class="fw-bold mb-0" data-key="rep-item1">Curtumes Toscana</h6><span class="small text-muted" data-key="rep-item1-text">Especialistas em couro vegetal</span></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-check-circle-fill" style="color: var(--primary-brown); font-size: 1.8rem;"></i>
+                                <div><h6 class="fw-bold mb-0" data-key="rep-item2">Conceria del Brenta</h6><span class="small text-muted" data-key="rep-item2-text">Couros para calçado de luxo</span></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-check-circle-fill" style="color: var(--primary-brown); font-size: 1.8rem;"></i>
+                                <div><h6 class="fw-bold mb-0" data-key="rep-item3">Gruppo Mastrotto</h6><span class="small text-muted" data-key="rep-item3-text">Inovação e sustentabilidade</span></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-check-circle-fill" style="color: var(--primary-brown); font-size: 1.8rem;"></i>
+                                <div><h6 class="fw-bold mb-0" data-key="rep-item4">Pelletterie d'Italia</h6><span class="small text-muted" data-key="rep-item4-text">Acabamentos e cores exclusivas</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTOS -->
+    <section id="contactos" class="py-5" style="background: white;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <span class="year-badge" data-key="contactos-badge">Fale connosco</span>
+                    <h2 class="section-title mt-3" data-key="contactos-titulo">Vamos Conversar</h2>
+                    <p class="text-muted" data-key="contactos-text">Estamos prontos para entender as suas necessidades e apresentar as melhores soluções em couro para o seu calçado.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-5">
+                    <div class="p-4 h-100" style="background: var(--cream); border-radius: 24px;">
+                        <h5 class="fw-bold mb-4" data-key="contactos-info">Informações de Contacto</h5>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-geo-alt" style="color: var(--primary-brown); font-size: 1.5rem;"></i>
+                            <div><span class="fw-semibold" data-key="contactos-end">Sede</span><br><span class="small" data-key="contactos-end-text">São João da Madeira, Portugal</span></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-telephone" style="color: var(--primary-brown); font-size: 1.5rem;"></i>
+                            <div><span class="fw-semibold" data-key="contactos-tel">Telefone</span><br><span class="small">+351 256 123 456</span></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-envelope" style="color: var(--primary-brown); font-size: 1.5rem;"></i>
+                            <div><span class="fw-semibold" data-key="contactos-email">Email</span><br><span class="small">info@luissantos.pt</span></div>
+                        </div>
+                        <hr class="my-4" style="border-color: var(--light-brown);">
+                        <p class="small text-muted" data-key="contactos-horario"><i class="bi bi-clock me-2"></i>Segunda a Sexta, 9h - 18h</p>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="p-4" style="border-radius: 24px;">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold" data-key="contactos-form-nome">Nome</label>
+                                    <input type="text" class="form-control form-control-lg rounded-3" placeholder="Seu nome">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold" data-key="contactos-form-email">Email</label>
+                                    <input type="email" class="form-control form-control-lg rounded-3" placeholder="seu@email.com">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold" data-key="contactos-form-msg">Mensagem</label>
+                                    <textarea class="form-control form-control-lg rounded-3" rows="4" placeholder="Fale sobre o seu projeto ou necessidade..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-leather w-100" data-key="contactos-form-btn">Enviar Mensagem</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-md-start text-center mb-3 mb-md-0">
+                    <h5 class="text-white fw-bold font-serif">Luís F.N. Santos</h5>
+                    <p class="small opacity-75 mb-0" data-key="footer-direitos">© 2026 Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="d-flex justify-content-center gap-2">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end text-center">
+                    <a href="#" class="small" data-key="footer-politica">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ==========================================
+        // DICIONÁRIO DE TRADUÇÕES COMPLETO
+        // ==========================================
+        const translations = {
+            pt: {
+                'nav-sobre': 'Sobre',
+                'nav-servicos': 'Serviços',
+                'nav-rep': 'Representações',
+                'nav-contactos': 'Contactos',
+                'hero-badge': 'Desde 1985',
+                'hero-title1': 'Representante de',
+                'hero-title2': 'Fábricas Italianas',
+                'hero-title3': 'de Curtumes',
+                'hero-sub': 'Inovadora, Confiável, Exemplar e Pioneira no fornecimento de couros de alta qualidade para a indústria calçadista.',
+                'hero-cta': 'Solicitar Orçamento',
+                'hero-cta2': 'Conheça a História',
+                'sobre-badge': 'A nossa história',
+                'sobre-titulo': 'Luís F.N. Dos Santos Ltda',
+                'sobre-texto1': '<strong>Com início a 28 de fevereiro de 1985 e sede em São João da Madeira,</strong> a empresa dedica-se à representação de fábricas italianas de curtumes para a indústria de calçado.',
+                'sobre-texto2': 'Com quase quatro décadas de experiência, a empresa é reconhecida pela sua dedicação, profissionalismo e compromisso para atender às necessidades do setor, oferecendo couros que aliam tradição e inovação.',
+                'sobre-texto3': 'A nossa equipa atua como ponte entre a excelência da curtimenta italiana e os fabricantes de calçado portugueses, garantindo qualidade, rastreabilidade e soluções sob medida.',
+                'sobre-missao': '+35 Anos',
+                'sobre-missao-text': 'Experiência no mercado',
+                'sobre-visao': 'Itália & Portugal',
+                'sobre-visao-text': 'Conexão entre dois mundos',
+                'sobre-valor': 'Excelência',
+                'sobre-valor-text': 'Qualidade reconhecida',
+                'sobre-conf': 'Confiabilidade',
+                'sobre-conf-text': 'Parceiro de confiança',
+                'servicos-badge': 'O que oferecemos',
+                'servicos-titulo': 'Serviços e Valores',
+                'servico1-titulo': 'Fornecimento de Couros',
+                'servico1-text': 'Couros de alta qualidade de curtumes italianos selecionados, com variedade de acabamentos e cores.',
+                'servico2-titulo': 'Representação Comercial',
+                'servico2-text': 'Intermediação direta entre fábricas italianas e a indústria calçadista portuguesa.',
+                'servico3-titulo': 'Consultoria Técnica',
+                'servico3-text': 'Aconselhamento sobre a melhor matéria-prima para cada tipo de calçado, tendências e inovações.',
+                'rep-badge': 'Parcerias',
+                'rep-titulo': 'Representações',
+                'rep-texto1': 'Representamos com exclusividade um grupo seleto de curtumes italianos, reconhecidos pela sua tradição, inovação e sustentabilidade. A nossa carteira de parceiros inclui fábricas com décadas de experiência na produção de couros para calçado de luxo, casual e desportivo.',
+                'rep-texto2': 'Trabalhamos em estreita colaboração com os nossos clientes para garantir que cada lote de couro atenda às especificações técnicas e estéticas exigidas, desde a seleção da matéria-prima até à entrega final.',
+                'rep-cta': 'Torne-se nosso parceiro',
+                'rep-item1': 'Curtumes Toscana',
+                'rep-item1-text': 'Especialistas em couro vegetal',
+                'rep-item2': 'Conceria del Brenta',
+                'rep-item2-text': 'Couros para calçado de luxo',
+                'rep-item3': 'Gruppo Mastrotto',
+                'rep-item3-text': 'Inovação e sustentabilidade',
+                'rep-item4': 'Pelletterie d\'Italia',
+                'rep-item4-text': 'Acabamentos e cores exclusivas',
+                'contactos-badge': 'Fale connosco',
+                'contactos-titulo': 'Vamos Conversar',
+                'contactos-text': 'Estamos prontos para entender as suas necessidades e apresentar as melhores soluções em couro para o seu calçado.',
+                'contactos-info': 'Informações de Contacto',
+                'contactos-end': 'Sede',
+                'contactos-end-text': 'São João da Madeira, Portugal',
+                'contactos-tel': 'Telefone',
+                'contactos-email': 'Email',
+                'contactos-horario': 'Segunda a Sexta, 9h - 18h',
+                'contactos-form-nome': 'Nome',
+                'contactos-form-email': 'Email',
+                'contactos-form-msg': 'Mensagem',
+                'contactos-form-btn': 'Enviar Mensagem',
+                'footer-direitos': '© 2026 Todos os direitos reservados.',
+                'footer-politica': 'Política de Privacidade'
+            },
+            it: {
+                'nav-sobre': 'Chi Siamo',
+                'nav-servicos': 'Servizi',
+                'nav-rep': 'Rappresentanze',
+                'nav-contactos': 'Contatti',
+                'hero-badge': 'Dal 1985',
+                'hero-title1': 'Rappresentante di',
+                'hero-title2': 'Fabbriche Italiane',
+                'hero-title3': 'di Concerie',
+                'hero-sub': 'Innovativa, Affidabile, Esemplare e Pioniera nella fornitura di pelli di alta qualità per l\'industria calzaturiera.',
+                'hero-cta': 'Richiedi Preventivo',
+                'hero-cta2': 'Scopri la Storia',
+                'sobre-badge': 'La nostra storia',
+                'sobre-titulo': 'Luís F.N. Dos Santos Ltda',
+                'sobre-texto1': '<strong>Con inizio il 28 febbraio 1985 e sede a São João da Madeira,</strong> l\'azienda si dedica alla rappresentanza di concerie italiane per l\'industria calzaturiera.',
+                'sobre-texto2': 'Con quasi quattro decenni di esperienza, l\'azienda è riconosciuta per la sua dedizione, professionalità e impegno nel soddisfare le esigenze del settore, offrendo pelli che uniscono tradizione e innovazione.',
+                'sobre-texto3': 'Il nostro team funge da ponte tra l\'eccellenza della concia italiana e i produttori di calzature portoghesi, garantendo qualità, tracciabilità e soluzioni su misura.',
+                'sobre-missao': '+35 Anni',
+                'sobre-missao-text': 'Esperienza sul mercato',
+                'sobre-visao': 'Italia & Portogallo',
+                'sobre-visao-text': 'Connessione tra due mondi',
+                'sobre-valor': 'Eccellenza',
+                'sobre-valor-text': 'Qualità riconosciuta',
+                'sobre-conf': 'Affidabilità',
+                'sobre-conf-text': 'Partner di fiducia',
+                'servicos-badge': 'Cosa offriamo',
+                'servicos-titulo': 'Servizi e Valori',
+                'servico1-titulo': 'Fornitura di Pelli',
+                'servico1-text': 'Pelli di alta qualità da concerie italiane selezionate, con varietà di finiture e colori.',
+                'servico2-titulo': 'Rappresentanza Commerciale',
+                'servico2-text': 'Intermediazione diretta tra fabbriche italiane e l\'industria calzaturiera portoghese.',
+                'servico3-titulo': 'Consulenza Tecnica',
+                'servico3-text': 'Consulenza sulla migliore materia prima per ogni tipo di calzatura, tendenze e innovazioni.',
+                'rep-badge': 'Partnership',
+                'rep-titulo': 'Rappresentanze',
+                'rep-texto1': 'Rappresentiamo in esclusiva un gruppo selezionato di concerie italiane, riconosciute per la loro tradizione, innovazione e sostenibilità. Il nostro portafoglio di partner include fabbriche con decenni di esperienza nella produzione di pelli per calzature di lusso, casual e sportive.',
+                'rep-texto2': 'Lavoriamo a stretto contatto con i nostri clienti per garantire che ogni lotto di pelle soddisfi le specifiche tecniche ed estetiche richieste, dalla selezione della materia prima alla consegna finale.',
+                'rep-cta': 'Diventa nostro partner',
+                'rep-item1': 'Concerie Toscana',
+                'rep-item1-text': 'Specialisti in pelle vegetale',
+                'rep-item2': 'Conceria del Brenta',
+                'rep-item2-text': 'Pelli per calzature di lusso',
+                'rep-item3': 'Gruppo Mastrotto',
+                'rep-item3-text': 'Innovazione e sostenibilità',
+                'rep-item4': 'Pelletterie d\'Italia',
+                'rep-item4-text': 'Finiture e colori esclusivi',
+                'contactos-badge': 'Contattaci',
+                'contactos-titulo': 'Parliamo Insieme',
+                'contactos-text': 'Siamo pronti a comprendere le tue esigenze e presentare le migliori soluzioni in pelle per le tue calzature.',
+                'contactos-info': 'Informazioni di Contatto',
+                'contactos-end': 'Sede',
+                'contactos-end-text': 'São João da Madeira, Portogallo',
+                'contactos-tel': 'Telefono',
+                'contactos-email': 'Email',
+                'contactos-horario': 'Lunedì a Venerdì, 9:00 - 18:00',
+                'contactos-form-nome': 'Nome',
+                'contactos-form-email': 'Email',
+                'contactos-form-msg': 'Messaggio',
+                'contactos-form-btn': 'Invia Messaggio',
+                'footer-direitos': '© 2026 Tutti i diritti riservati.',
+                'footer-politica': 'Politica sulla Privacy'
+            },
+            en: {
+                'nav-sobre': 'About',
+                'nav-servicos': 'Services',
+                'nav-rep': 'Representations',
+                'nav-contactos': 'Contact',
+                'hero-badge': 'Since 1985',
+                'hero-title1': 'Representative of',
+                'hero-title2': 'Italian Tanneries',
+                'hero-title3': 'for Leather',
+                'hero-sub': 'Innovative, Reliable, Exemplary and Pioneering in supplying high-quality leather for the footwear industry.',
+                'hero-cta': 'Request a Quote',
+                'hero-cta2': 'Discover Our Story',
+                'sobre-badge': 'Our journey',
+                'sobre-titulo': 'Luís F.N. Dos Santos Ltda',
+                'sobre-texto1': '<strong>Starting on February 28, 1985, and headquartered in São João da Madeira,</strong> the company is dedicated to representing Italian tanneries for the footwear industry.',
+                'sobre-texto2': 'With almost four decades of experience, the company is recognized for its dedication, professionalism and commitment to meeting the needs of the sector, offering leathers that combine tradition and innovation.',
+                'sobre-texto3': 'Our team acts as a bridge between the excellence of Italian tanning and Portuguese footwear manufacturers, ensuring quality, traceability and customized solutions.',
+                'sobre-missao': '+35 Years',
+                'sobre-missao-text': 'Market experience',
+                'sobre-visao': 'Italy & Portugal',
+                'sobre-visao-text': 'Connection between two worlds',
+                'sobre-valor': 'Excellence',
+                'sobre-valor-text': 'Recognized quality',
+                'sobre-conf': 'Reliability',
+                'sobre-conf-text': 'Trusted partner',
+                'servicos-badge': 'What we offer',
+                'servicos-titulo': 'Services & Values',
+                'servico1-titulo': 'Leather Supply',
+                'servico1-text': 'High-quality leather from selected Italian tanneries, with a variety of finishes and colors.',
+                'servico2-titulo': 'Commercial Representation',
+                'servico2-text': 'Direct intermediation between Italian factories and the Portuguese footwear industry.',
+                'servico3-titulo': 'Technical Consulting',
+                'servico3-text': 'Advice on the best raw materials for each type of footwear, trends and innovations.',
+                'rep-badge': 'Partnerships',
+                'rep-titulo': 'Representations',
+                'rep-texto1': 'We exclusively represent a select group of Italian tanneries, recognized for their tradition, innovation and sustainability. Our partner portfolio includes factories with decades of experience in producing leather for luxury, casual and sports footwear.',
+                'rep-texto2': 'We work closely with our clients to ensure that each batch of leather meets the required technical and aesthetic specifications, from raw material selection to final delivery.',
+                'rep-cta': 'Become our partner',
+                'rep-item1': 'Tuscany Tannery',
+                'rep-item1-text': 'Vegetable leather specialists',
+                'rep-item2': 'Conceria del Brenta',
+                'rep-item2-text': 'Leather for luxury footwear',
+                'rep-item3': 'Gruppo Mastrotto',
+                'rep-item3-text': 'Innovation and sustainability',
+                'rep-item4': 'Pelletterie d\'Italia',
+                'rep-item4-text': 'Exclusive finishes and colors',
+                'contactos-badge': 'Contact us',
+                'contactos-titulo': "Let's Talk",
+                'contactos-text': "We're ready to understand your needs and present the best leather solutions for your footwear.",
+                'contactos-info': 'Contact Information',
+                'contactos-end': 'Headquarters',
+                'contactos-end-text': 'São João da Madeira, Portugal',
+                'contactos-tel': 'Phone',
+                'contactos-email': 'Email',
+                'contactos-horario': 'Monday to Friday, 9am - 6pm',
+                'contactos-form-nome': 'Name',
+                'contactos-form-email': 'Email',
+                'contactos-form-msg': 'Message',
+                'contactos-form-btn': 'Send Message',
+                'footer-direitos': '© 2026 All rights reserved.',
+                'footer-politica': 'Privacy Policy'
+            }
+        };
+
+        // ==========================================
+        // FUNÇÃO PARA TROCAR O IDIOMA
+        // ==========================================
+        function changeLanguage(lang) {
+            document.getElementById('currentLangLabel').textContent = lang.toUpperCase();
+
+            document.querySelectorAll('.lang-dropdown .dropdown-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-lang') === lang) {
+                    item.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (key === 'sobre-texto1') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // ==========================================
+        // INICIALIZAÇÃO
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLang') || 'pt';
+            changeLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>

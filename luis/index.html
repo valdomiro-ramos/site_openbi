@@ -17,6 +17,7 @@
             --light-brown: #d4b8a4;
             --cream: #f8f3ef;
             --dark-brown: #3e2316;
+            --whatsapp-green: #25D366;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -26,6 +27,7 @@
         .font-serif {
             font-family: 'Playfair Display', serif;
         }
+        /* ===== NAVBAR ===== */
         .navbar {
             background: rgba(255, 248, 244, 0.95);
             backdrop-filter: blur(8px);
@@ -51,6 +53,88 @@
         .nav-link:hover {
             color: var(--primary-brown) !important;
         }
+        .navbar-toggler {
+            border: 1px solid var(--light-brown);
+            padding: 8px 12px;
+            order: 2;
+        }
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 2px var(--primary-brown);
+        }
+        .navbar-collapse {
+            order: 3;
+            flex-basis: 100%;
+        }
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+        }
+        .lang-dropdown .dropdown-toggle {
+            background: transparent;
+            border: 1px solid var(--light-brown);
+            border-radius: 30px;
+            padding: 6px 18px;
+            font-weight: 500;
+            color: var(--dark-brown);
+            font-size: 0.9rem;
+        }
+        .lang-dropdown .dropdown-toggle:hover {
+            background: var(--cream);
+        }
+        .lang-dropdown .dropdown-menu {
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .lang-dropdown .dropdown-item.active {
+            background: var(--cream);
+            color: var(--primary-brown);
+        }
+
+        /* ===== WHATSAPP FLOATING ICON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+            color: white;
+        }
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        @media (max-width: 576px) {
+            .whatsapp-float {
+                width: 54px;
+                height: 54px;
+                font-size: 2.2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* ===== HERO ===== */
         .hero-section {
             background: linear-gradient(135deg, #f8f3ef 0%, #e8ddd0 100%);
             padding: 140px 0 100px 0;
@@ -106,7 +190,8 @@
             margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.2);
         }
-        /* Imagem do lado direito - estilo couro */
+
+        /* ===== LEATHER IMAGE CARD ===== */
         .leather-image-card {
             background: linear-gradient(145deg, #5a3a28, #3e2316);
             border-radius: 24px;
@@ -178,8 +263,8 @@
         .leather-image-card .leather-texture span:nth-child(4) { background: #c49a7a; }
         .leather-image-card .leather-texture span:nth-child(5) { background: #5a3a28; }
         .leather-image-card .leather-texture span:hover { opacity: 1; }
-        /* Fim da imagem */
 
+        /* ===== SEÇÕES ===== */
         .section-title {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -253,6 +338,20 @@
             background: var(--primary-brown);
             color: white;
         }
+        .btn-whatsapp-contact {
+            background: var(--whatsapp-green);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-whatsapp-contact:hover {
+            background: #1da851;
+            transform: scale(1.02);
+            color: white;
+        }
         .about-text {
             color: #4a3a32;
             line-height: 1.8;
@@ -265,6 +364,8 @@
             color: var(--primary-brown);
             border: 1px solid var(--light-brown);
         }
+
+        /* ===== FOOTER ===== */
         .footer {
             background: var(--dark-brown);
             color: #d4c5ba;
@@ -289,30 +390,16 @@
             justify-content: center;
             border-radius: 50%;
             transition: background 0.3s;
+            font-size: 1.2rem;
         }
         .footer .social-icon:hover {
-            background: var(--primary-brown);
+            background: var(--whatsapp-green);
         }
-        .lang-dropdown .dropdown-toggle {
-            background: transparent;
-            border: 1px solid var(--light-brown);
-            border-radius: 30px;
-            padding: 6px 18px;
-            font-weight: 500;
-            color: var(--dark-brown);
+        .footer .social-icon.whatsapp:hover {
+            background: var(--whatsapp-green);
         }
-        .lang-dropdown .dropdown-toggle:hover {
-            background: var(--cream);
-        }
-        .lang-dropdown .dropdown-menu {
-            border-radius: 16px;
-            border: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-        .lang-dropdown .dropdown-item.active {
-            background: var(--cream);
-            color: var(--primary-brown);
-        }
+
+        /* ===== RESPONSIVO ===== */
         @media (max-width: 992px) {
             .leather-image-card {
                 margin: 30px auto 0;
@@ -339,19 +426,38 @@
             .leather-image-card .leather-title {
                 font-size: 1.8rem;
             }
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+            .navbar-right {
+                gap: 8px;
+            }
+            .lang-dropdown .dropdown-toggle {
+                padding: 4px 12px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- ===== WHATSAPP FLOATING ICON ===== -->
+    <a href="#" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       id="whatsappFloatLink"
+       aria-label="Fale conosco no WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-gem"></i> Luís F.N. Santos
             </a>
-            <div class="d-flex align-items-center gap-3">
-                <!-- Language Selector -->
+            <div class="navbar-right">
                 <div class="lang-dropdown dropdown">
                     <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-globe2 me-1"></i> <span id="currentLangLabel">PT</span>
@@ -362,7 +468,7 @@
                         <li><a class="dropdown-item" href="#" data-lang="en" onclick="changeLanguage('en')">English</a></li>
                     </ul>
                 </div>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
@@ -377,7 +483,7 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- ===== HERO ===== -->
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
@@ -392,10 +498,15 @@
                     </h1>
                     <p class="lead mb-4" data-key="hero-sub">Inovadora, Confiável, Exemplar e Pioneira no fornecimento de couros de alta qualidade para a indústria calçadista.</p>
                     <a href="#contactos" class="btn btn-leather me-3" data-key="hero-cta">Solicitar Orçamento</a>
-                    <a href="#sobre" class="btn btn-outline-leather" data-key="hero-cta2">Conheça a História</a>
+                    <a href="#" 
+                       class="btn btn-whatsapp-contact" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       id="whatsappHeroLink">
+                        <i class="bi bi-whatsapp me-2"></i> <span data-key="hero-whatsapp">Falar no WhatsApp</span>
+                    </a>
                 </div>
                 <div class="col-lg-5 d-none d-lg-block text-end">
-                    <!-- NOVA IMAGEM ESTILO COURO ITALIANO -->
                     <div class="leather-image-card">
                         <i class="bi bi-box-seam leather-icon"></i>
                         <div class="leather-title">COURO</div>
@@ -416,7 +527,7 @@
         </div>
     </section>
 
-    <!-- SOBRE -->
+    <!-- ===== SOBRE ===== -->
     <section id="sobre" class="py-5">
         <div class="container">
             <div class="row g-5 align-items-center">
@@ -465,7 +576,7 @@
         </div>
     </section>
 
-    <!-- SERVIÇOS -->
+    <!-- ===== SERVIÇOS ===== -->
     <section id="servicos" class="py-5" style="background: white;">
         <div class="container">
             <div class="text-center mb-5">
@@ -498,7 +609,7 @@
         </div>
     </section>
 
-    <!-- REPRESENTAÇÕES -->
+    <!-- ===== REPRESENTAÇÕES ===== -->
     <section id="representacoes" class="py-5">
         <div class="container">
             <div class="row align-items-center g-5">
@@ -535,7 +646,7 @@
         </div>
     </section>
 
-    <!-- CONTACTOS -->
+    <!-- ===== CONTACTOS ===== -->
     <section id="contactos" class="py-5" style="background: white;">
         <div class="container">
             <div class="row justify-content-center">
@@ -555,14 +666,25 @@
                         </div>
                         <div class="d-flex align-items-center gap-3 mb-3">
                             <i class="bi bi-telephone" style="color: var(--primary-brown); font-size: 1.5rem;"></i>
-                            <div><span class="fw-semibold" data-key="contactos-tel">Telefone</span><br><span class="small">+351 256 123 456</span></div>
+                            <div><span class="fw-semibold" data-key="contactos-tel">Telefone</span><br><span class="small">+351 919 190 198</span></div>
                         </div>
-                        <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center gap-3 mb-3">
                             <i class="bi bi-envelope" style="color: var(--primary-brown); font-size: 1.5rem;"></i>
                             <div><span class="fw-semibold" data-key="contactos-email">Email</span><br><span class="small">info@luissantos.pt</span></div>
                         </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-whatsapp" style="color: var(--whatsapp-green); font-size: 1.5rem;"></i>
+                            <div><span class="fw-semibold" data-key="contactos-whatsapp">WhatsApp</span><br><span class="small">+351 919 190 198</span></div>
+                        </div>
                         <hr class="my-4" style="border-color: var(--light-brown);">
                         <p class="small text-muted" data-key="contactos-horario"><i class="bi bi-clock me-2"></i>Segunda a Sexta, 9h - 18h</p>
+                        <a href="#" 
+                           class="btn btn-whatsapp-contact w-100 mt-3" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           id="whatsappContactLink">
+                            <i class="bi bi-whatsapp me-2"></i> <span data-key="contactos-whatsapp-btn">Fale connosco no WhatsApp</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -571,15 +693,15 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label fw-semibold" data-key="contactos-form-nome">Nome</label>
-                                    <input type="text" class="form-control form-control-lg rounded-3" placeholder="Seu nome">
+                                    <input type="text" class="form-control form-control-lg rounded-3" id="inputNome" placeholder="Seu nome">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-semibold" data-key="contactos-form-email">Email</label>
-                                    <input type="email" class="form-control form-control-lg rounded-3" placeholder="seu@email.com">
+                                    <input type="email" class="form-control form-control-lg rounded-3" id="inputEmail" placeholder="seu@email.com">
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label fw-semibold" data-key="contactos-form-msg">Mensagem</label>
-                                    <textarea class="form-control form-control-lg rounded-3" rows="4" placeholder="Fale sobre o seu projeto ou necessidade..."></textarea>
+                                    <textarea class="form-control form-control-lg rounded-3" id="inputMsg" rows="4" placeholder="Fale sobre o seu projeto ou necessidade..."></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-leather w-100" data-key="contactos-form-btn">Enviar Mensagem</button>
@@ -592,7 +714,7 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="row align-items-center">
@@ -605,6 +727,13 @@
                         <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
                         <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" 
+                           class="social-icon whatsapp" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           id="whatsappFooterLink">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4 text-md-end text-center">
@@ -632,7 +761,7 @@
                 'hero-title3': 'de Curtumes',
                 'hero-sub': 'Inovadora, Confiável, Exemplar e Pioneira no fornecimento de couros de alta qualidade para a indústria calçadista.',
                 'hero-cta': 'Solicitar Orçamento',
-                'hero-cta2': 'Conheça a História',
+                'hero-whatsapp': 'Falar no WhatsApp',
                 'sobre-badge': 'A nossa história',
                 'sobre-titulo': 'Luís F.N. Dos Santos Ltda',
                 'sobre-texto1': '<strong>Com início a 28 de fevereiro de 1985 e sede em São João da Madeira,</strong> a empresa dedica-se à representação de fábricas italianas de curtumes para a indústria de calçado.',
@@ -675,13 +804,20 @@
                 'contactos-end-text': 'São João da Madeira, Portugal',
                 'contactos-tel': 'Telefone',
                 'contactos-email': 'Email',
+                'contactos-whatsapp': 'WhatsApp',
+                'contactos-whatsapp-btn': 'Fale connosco no WhatsApp',
                 'contactos-horario': 'Segunda a Sexta, 9h - 18h',
                 'contactos-form-nome': 'Nome',
                 'contactos-form-email': 'Email',
                 'contactos-form-msg': 'Mensagem',
                 'contactos-form-btn': 'Enviar Mensagem',
+                // Placeholders do formulário
+                'form-placeholder-nome': 'Seu nome',
+                'form-placeholder-email': 'seu@email.com',
+                'form-placeholder-msg': 'Fale sobre o seu projeto ou necessidade...',
                 'footer-direitos': '© 2026 Todos os direitos reservados.',
-                'footer-politica': 'Política de Privacidade'
+                'footer-politica': 'Política de Privacidade',
+                'whatsapp-msg': 'Olá! Gostaria de mais informações sobre os couros italianos para calçados.'
             },
             it: {
                 'nav-sobre': 'Chi Siamo',
@@ -694,7 +830,7 @@
                 'hero-title3': 'di Concerie',
                 'hero-sub': 'Innovativa, Affidabile, Esemplare e Pioniera nella fornitura di pelli di alta qualità per l\'industria calzaturiera.',
                 'hero-cta': 'Richiedi Preventivo',
-                'hero-cta2': 'Scopri la Storia',
+                'hero-whatsapp': 'Contatta su WhatsApp',
                 'sobre-badge': 'La nostra storia',
                 'sobre-titulo': 'Luís F.N. Dos Santos Ltda',
                 'sobre-texto1': '<strong>Con inizio il 28 febbraio 1985 e sede a São João da Madeira,</strong> l\'azienda si dedica alla rappresentanza di concerie italiane per l\'industria calzaturiera.',
@@ -737,13 +873,20 @@
                 'contactos-end-text': 'São João da Madeira, Portogallo',
                 'contactos-tel': 'Telefono',
                 'contactos-email': 'Email',
+                'contactos-whatsapp': 'WhatsApp',
+                'contactos-whatsapp-btn': 'Contattaci su WhatsApp',
                 'contactos-horario': 'Lunedì a Venerdì, 9:00 - 18:00',
                 'contactos-form-nome': 'Nome',
                 'contactos-form-email': 'Email',
                 'contactos-form-msg': 'Messaggio',
                 'contactos-form-btn': 'Invia Messaggio',
+                // Placeholders do formulário
+                'form-placeholder-nome': 'Il tuo nome',
+                'form-placeholder-email': 'tua@email.com',
+                'form-placeholder-msg': 'Parla del tuo progetto o necessità...',
                 'footer-direitos': '© 2026 Tutti i diritti riservati.',
-                'footer-politica': 'Politica sulla Privacy'
+                'footer-politica': 'Politica sulla Privacy',
+                'whatsapp-msg': 'Salve! Vorrei maggiori informazioni sulle pelli italiane per calzature.'
             },
             en: {
                 'nav-sobre': 'About',
@@ -756,7 +899,7 @@
                 'hero-title3': 'for Leather',
                 'hero-sub': 'Innovative, Reliable, Exemplary and Pioneering in supplying high-quality leather for the footwear industry.',
                 'hero-cta': 'Request a Quote',
-                'hero-cta2': 'Discover Our Story',
+                'hero-whatsapp': 'Chat on WhatsApp',
                 'sobre-badge': 'Our journey',
                 'sobre-titulo': 'Luís F.N. Dos Santos Ltda',
                 'sobre-texto1': '<strong>Starting on February 28, 1985, and headquartered in São João da Madeira,</strong> the company is dedicated to representing Italian tanneries for the footwear industry.',
@@ -799,13 +942,20 @@
                 'contactos-end-text': 'São João da Madeira, Portugal',
                 'contactos-tel': 'Phone',
                 'contactos-email': 'Email',
+                'contactos-whatsapp': 'WhatsApp',
+                'contactos-whatsapp-btn': 'Contact us on WhatsApp',
                 'contactos-horario': 'Monday to Friday, 9am - 6pm',
                 'contactos-form-nome': 'Name',
                 'contactos-form-email': 'Email',
                 'contactos-form-msg': 'Message',
                 'contactos-form-btn': 'Send Message',
+                // Placeholders do formulário
+                'form-placeholder-nome': 'Your name',
+                'form-placeholder-email': 'your@email.com',
+                'form-placeholder-msg': 'Tell us about your project or needs...',
                 'footer-direitos': '© 2026 All rights reserved.',
-                'footer-politica': 'Privacy Policy'
+                'footer-politica': 'Privacy Policy',
+                'whatsapp-msg': 'Hello! I would like more information about Italian leather for footwear.'
             }
         };
 
@@ -822,6 +972,7 @@
                 }
             });
 
+            // Traduz textos principais
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
@@ -833,7 +984,35 @@
                 }
             });
 
+            // Traduz placeholders do formulário
+            const inputNome = document.getElementById('inputNome');
+            const inputEmail = document.getElementById('inputEmail');
+            const inputMsg = document.getElementById('inputMsg');
+            
+            if (inputNome) inputNome.placeholder = translations[lang]['form-placeholder-nome'];
+            if (inputEmail) inputEmail.placeholder = translations[lang]['form-placeholder-email'];
+            if (inputMsg) inputMsg.placeholder = translations[lang]['form-placeholder-msg'];
+
+            // Atualiza os links do WhatsApp com a mensagem no idioma correto
+            updateWhatsAppLinks(lang);
+
             localStorage.setItem('preferredLang', lang);
+        }
+
+        // ==========================================
+        // FUNÇÃO PARA ATUALIZAR LINKS DO WHATSAPP
+        // ==========================================
+        function updateWhatsAppLinks(lang) {
+            const phoneNumber = '351919190198';
+            const message = translations[lang]?.['whatsapp-msg'] || translations.pt['whatsapp-msg'];
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            document.querySelectorAll('#whatsappFloatLink, #whatsappHeroLink, #whatsappContactLink, #whatsappFooterLink').forEach(link => {
+                if (link) {
+                    link.href = whatsappUrl;
+                }
+            });
         }
 
         // ==========================================

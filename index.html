@@ -1,121 +1,221 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4NHD8DSML"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-C4NHD8DSML');
-  </script>
-
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Aulas particulares online de Python, SQL Server, Excel, Power BI, ETL e IA Generativa. Aulas individuais e treinamentos práticos para empresas.">
-  <link rel="canonical" href="https://www.openbiti.com/aulas/">
-  <title>Aulas Particulares Online de Python, SQL, Excel e Power BI | OpenBiti</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>OpenBI | Inteligência em Dados e Automação</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--lime:#b9f52d;--bg:#071017;--panel:#101e28;--muted:#b8c4cb}
-    html{scroll-behavior:smooth}body{background:var(--bg);color:#fff;font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
-    .navbar{background:rgba(5,13,20,.96);border-bottom:1px solid #243a34}.navbar-brand{font-weight:900;letter-spacing:.04em}.navbar-brand span,.accent{color:var(--lime)}
-    .nav-link{color:#e3e9ed!important}.nav-link:hover{color:var(--lime)!important}.btn-lime{background:var(--lime);color:#071017;font-weight:800;border:0}.btn-lime:hover{background:#d0ff68;color:#071017}
-    .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 80% 35%,#16435a 0%,#0b1d2a 38%,#071017 75%);padding:95px 0 70px}
-    .eyebrow{color:var(--lime);font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(2.5rem,6vw,5.2rem);font-weight:900;line-height:1.04}.hero p{font-size:1.18rem;color:#dce5e9;max-width:640px}
-    .hero-graphic{background:linear-gradient(145deg,#173a4a,#07141e);border:1px solid #41605d;border-radius:24px;padding:25px;box-shadow:0 25px 70px #0008}.chart{height:185px;display:flex;align-items:end;gap:10px;padding:16px;border-bottom:1px solid #58716e}.chart span{flex:1;background:linear-gradient(#36c6fc,#1264bd);border-radius:6px 6px 0 0}
-    .section-title{font-weight:900;font-size:clamp(1.9rem,3vw,2.6rem)}.section-sub{color:var(--muted)}.course-card,.info-card,.feature-card{height:100%;background:linear-gradient(145deg,#12232d,#0a161e);border:1px solid #42612b;border-radius:18px;padding:25px;transition:transform .2s,border-color .2s}.course-card:hover,.info-card:hover{transform:translateY(-5px);border-color:var(--lime)}
-    .course-icon{font-size:2.7rem;color:var(--lime);margin-bottom:15px}.course-card h3,.info-card h3{font-size:1.3rem;font-weight:800}.course-card p,.info-card p,.feature-card p{color:#cbd6db;margin-bottom:0}.section-pad{padding:75px 0}.info-card i{font-size:2.5rem;color:var(--lime)}
-    .experience{background:linear-gradient(110deg,#182b23,#0d2027);border:1px solid var(--lime);border-radius:22px;padding:32px}.experience strong{font-size:clamp(2.5rem,5vw,4rem);color:var(--lime)}
-    .feature-card{border-color:#2b423b;text-align:center}.feature-card i{color:var(--lime);font-size:2.2rem}.contact{border:1px solid var(--lime);border-radius:24px;background:linear-gradient(120deg,#102b25,#0a1a22);padding:38px}.contact-number{font-weight:900;font-size:clamp(1.65rem,4vw,3rem);overflow-wrap:anywhere}.wa-float{position:fixed;bottom:22px;right:22px;background:#25d366;color:white;border-radius:50%;height:64px;width:64px;display:grid;place-items:center;font-size:2rem;box-shadow:0 7px 30px #0009;z-index:1000;text-decoration:none}.wa-float:hover{color:white;background:#1ca950}
-    footer{border-top:1px solid #273c40;color:#aab7bc;padding:26px 0}@media(max-width:767px){.hero{padding:65px 0 50px}.section-pad{padding:52px 0}.contact{padding:24px}.hero-graphic{margin-top:25px}}
+    * { font-family: 'Inter', sans-serif; }
+    body { background-color: #f8fafc; scroll-behavior: smooth; }
+    .navbar { background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.03); padding: 1rem 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.8rem; color: #0a2b3e !important; }
+    .navbar-brand span { color: #2c7da0; }
+    .nav-link { font-weight: 500; color: #1e2f3a !important; }
+    .nav-link:hover { color: #2c7da0 !important; }
+    .btn-outline-custom { border: 2px solid #2c7da0; color: #2c7da0; border-radius: 40px; padding: 0.4rem 1.3rem; font-weight: 600; }
+    .btn-outline-custom:hover { background-color: #2c7da0; color: white; }
+    .btn-primary-custom { background-color: #1f5068; border: none; border-radius: 40px; padding: 0.6rem 2rem; font-weight: 600; transition: 0.2s; }
+    .btn-primary-custom:hover { background-color: #2c7da0; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(44,125,160,0.2); }
+    .hero { padding: 5rem 0 4rem; background: linear-gradient(135deg, #f0f7fb 0%, #ffffff 100%); }
+    .hero h1 { font-weight: 800; font-size: 3rem; color: #0a2b3e; }
+    .hero .highlight { color: #2c7da0; border-bottom: 3px solid #ffb74d; }
+    .service-card { background: white; border-radius: 32px; padding: 2rem 1.5rem; height: 100%; transition: all 0.3s; border: 1px solid #e9f0f3; }
+    .service-card:hover { transform: translateY(-8px); border-color: #cde3ec; box-shadow: 0 20px 30px -12px rgba(44,125,160,0.15); }
+    .icon-bg { background-color: #e6f4f5; width: 70px; height: 70px; border-radius: 30px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    .icon-bg i { font-size: 2.2rem; color: #2c7da0; }
+    .badge-feature { background-color: #f0f6f9; color: #1f5068; font-weight: 500; padding: 0.4rem 1rem; border-radius: 50px; }
+    .why-section { background-color: #ffffff; border-radius: 48px; box-shadow: 0 8px 28px rgba(0,0,0,0.03); padding: 3rem 2rem; }
+    .contact-card { background: white; border-radius: 32px; padding: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.05); border: 1px solid #eef3f6; }
+    .form-control, .form-select { border-radius: 20px; border: 1px solid #d4e2e8; padding: 0.7rem 1.2rem; }
+    .form-control:focus { border-color: #2c7da0; box-shadow: 0 0 0 3px rgba(44,125,160,0.2); }
+    footer { background-color: #0a2b3e; color: #cddfe6; }
+    .footer-link { color: #b6d0db; text-decoration: none; }
+    .footer-link:hover { color: white; }
+    @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero { text-align: center; } }
   </style>
-<style>
-.review-filter{border:1px solid #6e9935;color:#d8e8d0;background:transparent;border-radius:999px;padding:.55rem 1rem}.review-filter.active,.review-filter:hover{background:var(--lime);color:#071017;border-color:var(--lime)}
-.review-card{height:100%;padding:1.5rem;background:#12232d;border:1px solid #42612b;border-radius:18px}.review-stars{color:#c2ff42;letter-spacing:.12em}.review-card blockquote{font-size:1rem;line-height:1.7;color:#e5edf0}.review-card .author{font-weight:800}.review-card[hidden]{display:none!important}html{scroll-padding-top:90px}
-</style>
-
-<style>
-/* Seção de vídeos: estilos isolados para preservar a página original */
-#videos{background:#0b1921}#videos .video-frame{max-width:560px;margin:auto;border:1px solid #42612b;border-radius:22px;background:#10212b;padding:clamp(12px,2.5vw,26px);box-shadow:0 16px 45px #0005}
-#videos .video-cover{aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:13px;background:linear-gradient(135deg,#102f40,#08121c);display:flex;align-items:center;justify-content:center}
-#videos .video-cover img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.83}#videos .video-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#0610188a)}
-#videos .video-play{position:relative;z-index:2;border:0;background:#f03;color:white;width:76px;height:55px;border-radius:16px;font-size:2rem;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 25px #0009;transition:transform .2s}#videos .video-play:hover{transform:scale(1.09);background:#e00000}
-#videos .video-cover iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}#videos .video-label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);font-weight:800}#videos .video-frame h3{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:800}
-#videos .video-nav{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:22px}#videos .video-nav button{border:1px solid #6b9845;background:#12232d;color:white;border-radius:50%;height:46px;width:46px}#videos .video-nav button:hover{background:var(--lime);color:#071017}#videos .video-count{color:#d2dde2;min-width:70px;text-align:center}#videos .video-fallback{position:relative;z-index:2;text-align:center;padding:20px}#videos .video-fallback i{font-size:3.3rem;color:var(--lime)}
-</style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top"><div class="container"><a class="navbar-brand" href="#inicio">AULAS <span>ONLINE</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="menu"><ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3"><li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li><li class="nav-item"><a class="nav-link" href="#modalidades">Modalidades</a></li><li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li><li class="nav-item"><a class="nav-link" href="#videos">Vídeos de Aulas</a></li><li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li><li class="nav-item"><a class="btn btn-lime ms-lg-2 mt-2 mt-lg-0" href="#contato">Agende sua aula</a></li></ul></div></div></nav>
-<header class="hero" id="inicio"><div class="container"><div class="row align-items-center g-5"><div class="col-lg-7"><div class="eyebrow mb-3">Aprenda na prática</div><h1>AULAS ONLINE<br><span class="accent">DE ANÁLISE DE DADOS</span></h1><p class="mt-4">Do básico ao avançado, com projetos práticos e foco em <strong class="accent">resultados.</strong></p><div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-lime btn-lg" href="https://wa.me/5511981964264?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20aulas%20online." target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-2"></i>Falar pelo WhatsApp</a><a class="btn btn-outline-light btn-lg" href="#cursos">Ver conteúdos</a></div><div class="mt-4 fw-semibold"><i class="bi bi-clock accent me-2"></i>A partir das 17h e aos finais de semana</div></div><div class="col-lg-5"><div class="hero-graphic"><div class="d-flex justify-content-between align-items-center"><span class="fw-bold">Dashboard de resultados</span><i class="bi bi-graph-up-arrow accent fs-3"></i></div><div class="chart" aria-label="Ilustração de gráfico de barras"><span style="height:34%"></span><span style="height:53%"></span><span style="height:42%"></span><span style="height:74%"></span><span style="height:64%"></span><span style="height:91%"></span><span style="height:78%"></span></div><div class="row text-center mt-4 g-2"><div class="col-4"><i class="bi bi-database fs-3 accent"></i><div class="small">SQL</div></div><div class="col-4"><i class="bi bi-bar-chart fs-3 accent"></i><div class="small">BI</div></div><div class="col-4"><i class="bi bi-cpu fs-3 accent"></i><div class="small">IA</div></div></div></div></div></div></div></header>
-<main><section id="cursos" class="section-pad"><div class="container"><h2 class="section-title text-center">Conteúdos das <span class="accent">aulas</span></h2><p class="section-sub text-center mb-5">Tecnologias e habilidades aplicadas ao mercado de dados.</p><div class="row g-4">
-<div class="col-md-6 col-lg-4"><article class="course-card"><i class="bi bi-filetype-py course-icon"></i><h3>Aulas de Python Online</h3><p>Análise de dados<br>Automação<br>Pandas • APIs</p></article></div>
-<div class="col-md-6 col-lg-4"><article class="course-card"><i class="bi bi-database course-icon"></i><h3>Aulas de SQL Server e Banco de Dados</h3><p>Consultas avançadas<br>CTE • Window<br>Banco de Dados</p></article></div>
-<div class="col-md-6 col-lg-4"><article class="course-card"><i class="bi bi-bar-chart-fill course-icon"></i><h3>Aulas de Power BI Online</h3><p>Dashboards<br>DAX • Análises<br>Relatórios profissionais</p></article></div>
-<div class="col-md-6 col-lg-4"><article class="course-card"><i class="bi bi-file-earmark-spreadsheet course-icon"></i><h3>Aulas de Excel Online</h3><p>Análise de dados<br>Tabelas • Funções<br>Dashboards</p></article></div>
-<div class="col-md-6 col-lg-4"><article class="course-card"><i class="bi bi-gear-wide-connected course-icon"></i><h3>Aulas de ETL e Engenharia de Dados</h3><p>SSIS • ADF • Glue<br>Databricks • KNIME<br>Processos e automação</p></article></div>
-<div class="col-md-6 col-lg-4"><article class="course-card"><i class="bi bi-cpu course-icon"></i><h3>Aulas de IA Generativa para Dados</h3><p>Aplicações práticas<br>Prompts • LLM<br>Automação com IA</p></article></div>
-</div></div></section>
-<section id="modalidades" class="section-pad" style="background:#0b1921"><div class="container"><h2 class="section-title text-center mb-5">Como você pode <span class="accent">aprender</span></h2><div class="row g-4"><div class="col-md-6"><div class="info-card"><i class="bi bi-mortarboard-fill"></i><h3 class="mt-3">Aulas individuais</h3><p>Conteúdo personalizado conforme seu objetivo.</p></div></div><div class="col-md-6"><div class="info-card"><i class="bi bi-people-fill"></i><h3 class="mt-3">Treinamentos para empresas</h3><p>Turmas reduzidas e projetos práticos.</p></div></div><div class="col-md-6"><div class="info-card"><i class="bi bi-laptop"></i><h3 class="mt-3">100% online</h3><p>De onde você estiver.</p></div></div><div class="col-md-6"><div class="info-card"><i class="bi bi-bullseye"></i><h3 class="mt-3">Projetos reais</h3><p>Com exemplos do mercado.</p></div></div></div></div></section>
-<section id="diferenciais" class="section-pad"><div class="container"><div class="experience mb-5"><div class="row align-items-center g-3"><div class="col-md-auto"><strong>28 ANOS</strong></div><div class="col"><h2 class="h3 fw-bold">DE EXPERIÊNCIA EM TI</h2><p class="mb-0 text-light">Mais de 20 anos em projetos de Business Intelligence, bancos de dados e engenharia de dados.</p></div></div></div><div class="row g-3"><div class="col-md-6 col-lg-3"><div class="feature-card"><i class="bi bi-lightbulb"></i><h3 class="h6 fw-bold mt-3">FOCO EM RESULTADOS</h3><p>Conteúdo prático aplicado ao dia a dia.</p></div></div><div class="col-md-6 col-lg-3"><div class="feature-card"><i class="bi bi-graph-up-arrow"></i><h3 class="h6 fw-bold mt-3">APRENDIZADO EFICIENTE</h3><p>Metodologia objetiva e personalizada.</p></div></div><div class="col-md-6 col-lg-3"><div class="feature-card"><i class="bi bi-person-check"></i><h3 class="h6 fw-bold mt-3">DO BÁSICO AO AVANÇADO</h3><p>Para iniciantes e profissionais.</p></div></div><div class="col-md-6 col-lg-3"><div class="feature-card"><i class="bi bi-gear"></i><h3 class="h6 fw-bold mt-3">SOLUÇÕES ATUAIS</h3><p>Com as ferramentas mais usadas no mercado.</p></div></div></div></div></section>
 
-<section id="videos" class="section-pad">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <h2 class="section-title text-center">Vídeos de <span class="accent">Aulas</span></h2>
-    <p class="section-sub text-center mb-4">Conheça meus projetos e conteúdos em vídeo no YouTube.</p>
-    <div id="aulasCarousel" class="carousel slide" data-bs-interval="false" aria-label="Carrossel de vídeos de aulas">
-      <div class="carousel-inner">
-        <div class="carousel-item active"><div class="video-frame">
-          <div class="video-cover" data-video="jgFbsJuAhhQ"><img src="https://i.ytimg.com/vi/jgFbsJuAhhQ/hqdefault.jpg" alt="Capa do vídeo sobre Microsoft Access" loading="lazy"><button class="video-play" type="button" aria-label="Assistir projeto de IA Generativa"><i class="bi bi-play-fill"></i></button></div>
-          <div class="video-label mt-3">Aula de Access</div><h3 class="mt-2">Criando funções e Consultas</h3><p class="section-sub mb-0">Access, consultas e funções</p>
-        </div></div>
-        <div class="carousel-item"><div class="video-frame">
-          <div class="video-cover" data-video="WnIuTk3YmSs"><img src="https://i.ytimg.com/vi/WnIuTk3YmSs/hqdefault.jpg" alt="Capa do vídeo sobre Windows" loading="lazy"><button class="video-play" type="button" aria-label="Assistir segundo vídeo"><i class="bi bi-play-fill"></i></button></div>
-          <div class="video-label mt-3">Aula de Windows</div><h3 class="mt-2">Configurando Proteção de tela</h3><p class="section-sub mb-0">Windows, proteção de Tela</p>
-        </div></div>
-        <div class="carousel-item"><div class="video-frame">
-          <div class="video-cover" data-video="XEGaIpgN3Eo"><img src="https://i.ytimg.com/vi/XEGaIpgN3Eo/hqdefault.jpg" alt="Miniatura da aula Relacionamento entre Tabelas" loading="lazy"><button class="video-play" type="button" aria-label="Assistir aula Relacionamento entre Tabelas"><i class="bi bi-play-fill"></i></button></div>
-          <div class="video-label mt-3">Aula de relacionamento de dados</div><h3 class="mt-2">Relacionamento entre Tabelas</h3><p class="section-sub mb-0">Relacionamento entre tabelas</p>
-        </div></div>
-        <div class="carousel-item"><div class="video-frame">
-          <div class="video-cover" data-video="lTyE8OwNFC8"><img src="https://i.ytimg.com/vi/lTyE8OwNFC8/hqdefault.jpg" alt="Miniatura da aula de Excel: Colunas e linhas" loading="lazy"><button class="video-play" type="button" aria-label="Assistir aula de Excel: Colunas e linhas"><i class="bi bi-play-fill"></i></button></div>
-          <div class="video-label mt-3">Aula de Excel</div><h3 class="mt-2">Colunas e linhas</h3>
-        </div></div>
-      </div>
-      <div class="video-nav"><button type="button" data-bs-target="#aulasCarousel" data-bs-slide="prev" aria-label="Vídeo anterior"><i class="bi bi-chevron-left"></i></button><span class="video-count" id="videoCount">1 / 4</span><button type="button" data-bs-target="#aulasCarousel" data-bs-slide="next" aria-label="Próximo vídeo"><i class="bi bi-chevron-right"></i></button></div>
+    <a class="navbar-brand" href="#">Open<span>BI</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navOpenBI">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navOpenBI">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
+        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        <li class="nav-item"><a class="btn btn-outline-custom ms-2" href="#contato">Solicitar Orçamento</a></li>
+      </ul>
     </div>
-    <div class="text-center mt-4"><a class="btn btn-lime btn-lg" href="https://www.youtube.com/@valdomiroonofreramos2734" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube me-2"></i>Visitar meu canal</a></div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge-feature d-inline-block mb-3"><i class="bi bi-graph-up"></i>  Dados que transformam</span>
+        <h1>Automação inteligente <br> para <span class="highlight">decisões mais rápidas</span></h1>
+        <p class="lead mt-4 mb-4">Da planilha ao aplicativo, soluções em Excel, integração de dados, Power BI e mobile.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#contato" class="btn btn-primary-custom btn-lg">Fale com um especialista <i class="bi bi-arrow-right-short"></i></a>
+          <a href="#servicos" class="btn btn-outline-secondary btn-lg px-4 rounded-pill">Explorar serviços</a>
+        </div>
+        <div class="mt-4 d-flex flex-wrap gap-4">
+          <div><i class="bi bi-check-circle-fill text-success me-1"></i> <span class="small">+45 projetos entregues</span></div>
+          <div><i class="bi bi-star-fill text-warning me-1"></i> <span class="small">98% de satisfação</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="https://placehold.co/600x450/eef3f6/2c7da0?text=OpenBI+Solutions&font=montserrat" alt="dashboard" class="img-fluid rounded-4 shadow-sm">
+      </div>
+    </div>
   </div>
 </section>
-<section id="depoimentos" class="section-pad" style="background:#0b1921"><div class="container"><h2 class="section-title text-center">O que dizem <span class="accent">meus alunos</span></h2><p class="text-center section-sub mb-2">Avaliações reais publicadas na Superprof.</p><p class="text-center mb-4"><strong class="accent fs-3">5/5 ★</strong> <span class="text-light">· 96 avaliações na Superprof (consulta em outubro de 2026)</span></p><div class="d-flex flex-wrap gap-2 justify-content-center mb-4" role="group" aria-label="Filtrar depoimentos"><button class="review-filter active" data-filter="todos" aria-pressed="true">Todos</button><button class="review-filter" data-filter="sql" aria-pressed="false">SQL e Bancos</button><button class="review-filter" data-filter="dados" aria-pressed="false">Power BI e Dados</button><button class="review-filter" data-filter="etl" aria-pressed="false">ETL e Pentaho</button><button class="review-filter" data-filter="didatica" aria-pressed="false">Didática</button></div><div class="row g-4" id="reviewGrid"><div class="col-md-6 col-xl-4 review-item" data-category="sql"><article class="review-card"><div class="review-stars mb-3" aria-label="5 de 5 estrelas">★★★★★</div><blockquote class="mb-3">“Ele tem profundo conhecimento do assunto e sabe transmiti-lo de forma simples e clara.”</blockquote><div class="author">Willian</div><small class="text-secondary">Avaliação publicada na Superprof · 5/5</small></article></div><div class="col-md-6 col-xl-4 review-item" data-category="sql"><article class="review-card"><div class="review-stars mb-3" aria-label="5 de 5 estrelas">★★★★★</div><blockquote class="mb-3">“O professor Valdomiro é super competente e domina a disciplina, tem uma ótima didática e com certeza o indico como mentor.”</blockquote><div class="author">Simone</div><small class="text-secondary">Avaliação publicada na Superprof · 5/5</small></article></div><div class="col-md-6 col-xl-4 review-item" data-category="dados"><article class="review-card"><div class="review-stars mb-3" aria-label="5 de 5 estrelas">★★★★★</div><blockquote class="mb-3">“O professor Valdomiro é muito competente e tem me ensinado análise de dados em modo dinâmico e voltado para o mercado de trabalho.”</blockquote><div class="author">Marcelo</div><small class="text-secondary">Avaliação publicada na Superprof · 5/5</small></article></div><div class="col-md-6 col-xl-4 review-item" data-category="dados"><article class="review-card"><div class="review-stars mb-3" aria-label="5 de 5 estrelas">★★★★★</div><blockquote class="mb-3">“Pude aprender sobre SQL, PowerBI, processo ETL, entre outros.”</blockquote><div class="author">Karina</div><small class="text-secondary">Avaliação publicada na Superprof · 5/5</small></article></div><div class="col-md-6 col-xl-4 review-item" data-category="etl"><article class="review-card"><div class="review-stars mb-3" aria-label="5 de 5 estrelas">★★★★★</div><blockquote class="mb-3">“Valdomiro é um ótimo excelente professor de Pentaho.”</blockquote><div class="author">Mi</div><small class="text-secondary">Avaliação publicada na Superprof · 5/5</small></article></div><div class="col-md-6 col-xl-4 review-item" data-category="etl"><article class="review-card"><div class="review-stars mb-3" aria-label="5 de 5 estrelas">★★★★★</div><blockquote class="mb-3">“O Professor Valdomiro possui um vasto conhecimento em sua área, dominando todas as etapas de desenvolvimento de DW, tem uma ótima didática e está sempre apto a esclarecer dúvidas.”</blockquote><div class="author">Neuri</div><small class="text-secondary">Avaliação publicada na Superprof · 5/5</small></article></div><div class="col-md-6 col-xl-4 review-item" data-category="didatica"><article class="review-card"><div class="review-stars mb-3" aria-label="5 de 5 estrelas">★★★★★</div><blockquote class="mb-3">“Aula fluida e de altíssima qualidade, Valdomiro tem muita paciência e didática, além de estar sempre disponível para dúvidas.”</blockquote><div class="author">Crystal</div><small class="text-secondary">Avaliação publicada na Superprof · 5/5</small></article></div><div class="col-md-6 col-xl-4 review-item" data-category="didatica"><article class="review-card"><div class="review-stars mb-3" aria-label="5 de 5 estrelas">★★★★★</div><blockquote class="mb-3">“Ele entende muito do assunto e consegue explicar de um jeito que você consiga entender.”</blockquote><div class="author">Gisele</div><small class="text-secondary">Avaliação publicada na Superprof · 5/5</small></article></div></div><div class="text-center mt-5"><a class="btn btn-lime btn-lg" href="https://www.superprof.com.br/cursos-basicos-avancados-ferramenta-etl-integration-service-pentaho-uml-agile-powerbi-com-oracle-sqlserver-mysql.html" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2"></i>Ver todas as avaliações na Superprof</a><p class="small text-secondary mt-3">Trechos selecionados de depoimentos públicos. Categorias organizadas por tema, não por curso contratado.</p></div></div></section>
-<script>document.querySelectorAll('.review-filter').forEach(button=>button.addEventListener('click',()=>{const filter=button.dataset.filter;document.querySelectorAll('.review-filter').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button))});document.querySelectorAll('.review-item').forEach(card=>{card.hidden=filter!=='todos'&&card.dataset.category!==filter})}));</script>
-<section id="contato" class="pb-5"><div class="container"><div class="contact text-center"><i class="bi bi-whatsapp display-3" style="color:#25d366"></i><h2 class="section-title mt-3">Fale diretamente pelo <span class="accent">WhatsApp</span></h2><p class="contact-number">(11) 98196-4264</p><p class="text-light">Tire suas dúvidas e agende sua aula.</p><a class="btn btn-lime btn-lg mt-2" href="https://wa.me/5511981964264?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20aula%20online." target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-2"></i>Conversar agora</a></div></div></section></main>
-<footer><div class="container text-center">© <span id="ano"></span> Aulas Online de Análise de Dados • Atendimento online</div></footer><a class="wa-float" aria-label="Fale pelo WhatsApp" href="https://wa.me/5511981964264?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20aulas." target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script>document.getElementById('ano').textContent=new Date().getFullYear();</script>
 
+<section id="servicos" class="py-5">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <span class="badge-feature d-inline-block mb-2"><i class="bi bi-cpu"></i>  Nossas especialidades</span>
+      <h2 class="fw-bold display-6 mb-3">Soluções sob medida</h2>
+      <p class="text-secondary w-75 mx-auto">Quatro pilares tecnológicos para escalar com inteligência.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3"><div class="service-card text-center"><div class="icon-bg mx-auto"><i class="bi bi-file-spreadsheet-fill"></i></div><h3>Automação em Excel</h3><p>Macros, Power Query e dashboards automáticos.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="service-card text-center"><div class="icon-bg mx-auto"><i class="bi bi-diagram-3-fill"></i></div><h3>Integração de Dados</h3><p>Conecte ERPs, CRMs, APIs e bancos.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="service-card text-center"><div class="icon-bg mx-auto"><i class="bi bi-bar-chart-steps"></i></div><h3>Dashboards Power BI</h3><p>KPIs em tempo real e reports executivos.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="service-card text-center"><div class="icon-bg mx-auto"><i class="bi bi-phone-fill"></i></div><h3>Aplicativos Mobile</h3><p>Android e iOS com integração nativa.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="diferenciais" class="py-4 pb-5">
+  <div class="container">
+    <div class="why-section">
+      <div class="row align-items-center">
+        <div class="col-lg-5"><span class="badge-feature"><i class="bi bi-gem"></i> Diferenciais</span><h2 class="fw-bold mt-3 mb-4">Criamos resultados, não só tecnologia.</h2><p class="text-secondary">Consultoria, segurança e suporte contínuo.</p></div>
+        <div class="col-lg-7"><div class="row g-3"><div class="col-sm-6"><div class="p-4 bg-white rounded-4 shadow-sm border"><i class="bi bi-clock-history fs-1" style="color:#2c7da0;"></i><h5 class="mt-3">Reduza 80% do tempo</h5></div></div><div class="col-sm-6"><div class="p-4 bg-white rounded-4 shadow-sm border"><i class="bi bi-graph-up fs-1" style="color:#2c7da0;"></i><h5 class="mt-3">Decisões orientadas a dados</h5></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO COM ENVIO REAL VIA WEB3FORMS -->
+<section id="contato" class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <div class="contact-card h-100">
+          <i class="bi bi-envelope-paper fs-1" style="color:#2c7da0;"></i>
+          <h2 class="fw-bold mt-3">Vamos conversar?</h2>
+          <p>Preencha o formulário. Sua mensagem chegará ao e-mail configurado.</p>
+          <hr><div><i class="bi bi-whatsapp fs-4" style="color:#25D366;"></i> <strong>WhatsApp:</strong> +55 (11) (em breve)</div>
+          <div class="mt-2"><i class="bi bi-envelope-fill"></i> <strong>E-mail:</strong> contato@openbiti.com</div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="contact-card">
+          <h3><i class="bi bi-chat-text"></i> Solicitar orçamento</h3>
+          <form id="formContato" method="POST">
+            <input type="hidden" name="access_key" id="access_key_field" value="22069a4c-3bf5-4051-aa0f-d615d8fb808d">
+            <input type="hidden" name="to" id="to_email_field" value="valdomiro.ramoss@gmail.com">
+            <input type="hidden" name="subject" id="subject_field" value="Contato via OpenBI">
+            <div class="row g-3">
+              <div class="col-md-6"><label>Nome *</label><input type="text" name="name" class="form-control" required id="nome"></div>
+              <div class="col-md-6"><label>E-mail *</label><input type="email" name="email" class="form-control" required id="email"></div>
+              <div class="col-12"><label>Telefone</label><input type="tel" name="phone" class="form-control" id="telefone"></div>
+              <div class="col-12"><label>Serviço de interesse</label><select name="servico" class="form-select"><option>Automação em Excel</option><option>Integração de Dados</option><option>Dashboards Power BI</option><option>Aplicativos Mobile</option><option>Solução completa</option></select></div>
+              <div class="col-12"><label>Mensagem *</label><textarea name="message" rows="4" class="form-control" required id="mensagem"></textarea></div>
+              <div class="col-12"><button type="submit" class="btn btn-primary-custom w-100 py-2" id="btnEnviar">Enviar mensagem <i class="bi bi-send"></i></button></div>
+              <div id="statusMsg" class="alert d-none mt-2"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pt-5 pb-4 mt-5">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-5"><h4 class="fw-bold text-white">Open<span style="color:#7eb6cc;">BI</span></h4><p class="small">Automação e Business Intelligence.</p></div>
+      <div class="col-md-3"><h6 class="fw-bold text-white">Navegação</h6><ul class="list-unstyled"><li><a href="#servicos" class="footer-link">Serviços</a></li><li><a href="#contato" class="footer-link">Contato</a></li></ul></div>
+      <div class="col-md-4"><h6 class="fw-bold text-white">Contato</h6><ul class="list-unstyled small"><li><i class="bi bi-envelope me-2"></i> contato@openbiti.com</li><li><i class="bi bi-globe2 me-2"></i> www.openbiti.com.br</li></ul></div>
+    </div>
+    <hr class="mt-4"><div class="text-center small">&copy; 2025 OpenBI</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Reprodução incorporada no site publicado; abertura no YouTube ao testar via file://.
-(function(){
-  const carousel=document.getElementById('aulasCarousel');
-  const slides=[...carousel.querySelectorAll('.carousel-item')];
-  carousel.addEventListener('slid.bs.carousel',e=>document.getElementById('videoCount').textContent=(e.to+1)+' / '+slides.length);
-  carousel.addEventListener('slide.bs.carousel',()=>{
-    carousel.querySelectorAll('.video-cover iframe').forEach(frame=>frame.remove());
-  });
-  carousel.querySelectorAll('.video-cover[data-video] .video-play').forEach(button=>{
-    button.addEventListener('click',()=>{
-      const cover=button.closest('.video-cover'),id=cover.dataset.video;
-      if(location.protocol==='file:'){
-        window.open('https://www.youtube.com/watch?v='+encodeURIComponent(id),'_blank','noopener,noreferrer');
-        return;
+  // Chave e e-mail já configurados (iguais aos campos ocultos)
+  const ACCESS_KEY = "22069a4c-3bf5-4051-aa0f-d615d8fb808d";
+  const DEST_EMAIL = "valdomiro.ramoss@gmail.com";
+
+  // Preenche os campos ocultos (redundante, mas consistente)
+  document.getElementById('access_key_field').value = ACCESS_KEY;
+  document.getElementById('to_email_field').value = DEST_EMAIL;
+
+  const form = document.getElementById('formContato');
+  const statusDiv = document.getElementById('statusMsg');
+  const btn = document.getElementById('btnEnviar');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensagem = document.getElementById('mensagem').value.trim();
+    if (!nome || !email || !mensagem) {
+      showStatus('Preencha nome, e-mail e mensagem.', 'danger');
+      return;
+    }
+
+    const servicoSelect = document.querySelector('select[name="servico"]');
+    const servico = servicoSelect ? servicoSelect.value : 'Não informado';
+    document.getElementById('subject_field').value = `Contato de ${nome} - Interesse: ${servico}`;
+
+    const formData = new FormData(form);
+    formData.set('access_key', ACCESS_KEY);
+    formData.set('to', DEST_EMAIL);
+
+    btn.disabled = true;
+    btn.innerHTML = 'Enviando... <i class="bi bi-hourglass-split"></i>';
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+      if (result.success) {
+        showStatus('✅ Mensagem enviada com sucesso! Responderemos em breve.', 'success');
+        form.reset();
+      } else {
+        showStatus(`❌ Erro: ${result.message || 'Falha no envio. Tente novamente.'}`, 'danger');
       }
-      const iframe=document.createElement('iframe');
-      iframe.src='https://www.youtube.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0';
-      iframe.title='Vídeo do YouTube';iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.allowFullscreen=true;
-      cover.appendChild(iframe);
-    });
+    } catch (error) {
+      showStatus('❌ Erro de conexão. Verifique sua internet.', 'danger');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'Enviar mensagem <i class="bi bi-send"></i>';
+    }
   });
-})();
+
+  function showStatus(msg, type) {
+    statusDiv.textContent = msg;
+    statusDiv.className = `alert alert-${type} mt-2`;
+    statusDiv.classList.remove('d-none');
+    setTimeout(() => statusDiv.classList.add('d-none'), 7000);
+    statusDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 </script>
-</body></html>
+</body>
+</html>
